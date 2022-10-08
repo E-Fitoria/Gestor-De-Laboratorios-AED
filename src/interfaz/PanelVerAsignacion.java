@@ -29,7 +29,7 @@ public class PanelVerAsignacion extends javax.swing.JPanel {
         
         jTextArea1.setText("");
         jTextArea1.setText(asignacion.getAsignacion()); //Mostramos en jTextArea los valores del atributo asignacion
-                                                        //uasando su funcion get
+                                                        //usando su funcion get
     }
 
     /**

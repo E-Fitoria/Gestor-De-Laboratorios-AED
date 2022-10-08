@@ -1,6 +1,8 @@
 
 package interfaz;
 
+import Laboratorio2.PanelBusqueda;
+import Laboratorio2.PanelOrdenamiento;
 import TransferirDatos.ModeloDeTransferencia;
 import Laboratorio3.PanelLab3Ejercicio1;
 import Laboratorio3.PanelLab3Ejercicio2;
@@ -11,13 +13,13 @@ import Laboratorio3.PanelLab3Ejercicio6;
 import java.awt.*;
 import javax.swing.JPanel;
 
-public class PanelLab3 extends javax.swing.JPanel {
+public class PanelLab2 extends javax.swing.JPanel {
     
     
     /**
      * Creates new form PanelLab3
      */
-    public PanelLab3() {
+    public PanelLab2() {
         
         initComponents();
     }
@@ -39,10 +41,10 @@ public class PanelLab3 extends javax.swing.JPanel {
         setBackground(new java.awt.Color(232, 232, 232));
 
         jLabel1.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        jLabel1.setText("Laboratorio de recursividad");
+        jLabel1.setText("Laboratorio de Ordenamiento y Búsqueda");
 
         jComboBox1.setFont(new java.awt.Font("Consolas", 1, 13)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ejercicio 1", "Ejercicio 2", "Ejercicio 3", "Ejercicio 4", "Ejercicio 5", "Ejercicio 6" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ordenamiento", "Búsqueda" }));
         jComboBox1.setSelectedIndex(-1);
         jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jComboBox1.setFocusable(false);
@@ -98,24 +100,23 @@ public class PanelLab3 extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(342, 342, 342)
-                        .addComponent(btnProbar)))
+                .addGap(14, 14, 14)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(342, 342, 342)
+                .addComponent(btnProbar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(PanelProbarEjercicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(123, 123, 123))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addGap(22, 22, 22)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
@@ -148,123 +149,25 @@ public class PanelLab3 extends javax.swing.JPanel {
         
         switch(ejercicio)
         {
-            case "Ejercicio 1":
+           case "Ordenamiento":
               
-                PanelLab3Ejercicio1 panel = new PanelLab3Ejercicio1();
+                PanelOrdenamiento panel = new PanelOrdenamiento();
                 CambiarPanel(panel);
                 
                 break;
-            case "Ejercicio 2":
+             
+            case "Búsqueda":
               
-                PanelLab3Ejercicio2 panel2 = new PanelLab3Ejercicio2();
+                PanelBusqueda panel2 = new PanelBusqueda();
                 CambiarPanel(panel2);
                 
-                break;
-            case "Ejercicio 3":
-              
-                PanelLab3Ejercicio3 panel3 = new PanelLab3Ejercicio3();
-                CambiarPanel(panel3);
-                
-                break;
-            case "Ejercicio 4":
-              
-                PanelLab3Ejercicio4 panel4 = new PanelLab3Ejercicio4();
-                CambiarPanel(panel4);
-                
-                break;
-            case "Ejercicio 5":
-              
-                PanelLab3Ejercicio5 panel5 = new PanelLab3Ejercicio5();
-                CambiarPanel(panel5);
-                
-                break;
-            case "Ejercicio 6":
-              
-                PanelLab3Ejercicio6 panel6 = new PanelLab3Ejercicio6();
-                CambiarPanel(panel6);
-                
-                break;
+                break;         
         }
           
     }//GEN-LAST:event_btnProbarActionPerformed
   
-    /*
-        En la funcion del combobox instanciamos nuestra clase ModeloDeTransferencia creando un 
-        objeto para poder asignarle un valor al atributo de la clase mediante la funcion Set
-    
-        Luego creamos otro objeto llamado panel del tipo PanelVerAsignacion que recibe como parametro
-        un objeto, en este caso el objeto asignacion que contiene como atributo un tipo string el cual nos servira
-        en el formulario PanelVerAsignacion y mostrar en un textArea
-    
-        Luego usamos la funcion para cambiar de panel para mostrar todo lo conteindo en el PanelVerAsignacion
-        con los datos que ya le pasamos
-    */
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        
-        ModeloDeTransferencia asignacion = new ModeloDeTransferencia(); 
-        
-        String ejercicio = jComboBox1.getSelectedItem().toString();
-        
-        if (ejercicio.equals("Ejercicio 1"))
-        {
-            
-            asignacion.setAsignacion("""
-                                     Escribir un programa que lea un arreglo entero de N elementos y que cree un m\u00e9todo
-                                     recursivo que los imprima en orden original e inverso. """);
-        }
-        else if (ejercicio.equals("Ejercicio 2"))
-        {
-            asignacion.setAsignacion("""
-                                     Escriba un programa recursivo que lea una palabra e imprima su inversa. Ejemplo:
-                                     palabra: ROMA
-                                     Inversa: AMOR""");
-        }
-        else if (ejercicio.equals("Ejercicio 3"))
-        {
-            asignacion.setAsignacion("""
-                                     Escriba un programa recursivo que pida 10 elementos enteros y calcule el producto de
-                                     todos ellos. Imprimir los valores leídos y el producto. Ejemplo:
-                                     Elementos:
-                                     5 3 2 4 7 1 8 9 5 2
-                                     Su producto es: 604,800
-                                     """);
-        }
-        else if (ejercicio.equals("Ejercicio 4"))
-        {
-            asignacion.setAsignacion("""
-                                     Escribir un programa recursivo que lea una cadena de caracteres y que cuente cuantos
-                                     espacios en blanco tiene. Ejemplo:
-                                     
-                                     Esto es una prueba de recursividad
-                                     Tiene 5 espacios en blanco.
-                                     """);
-            
-        }
-        else if (ejercicio.equals("Ejercicio 5"))
-        {
-            asignacion.setAsignacion("""
-                                     Pedro y Juan abren una cuenta al mismo tiempo en un banco. Pedro la abre con $400 a
-                                     una tasa de interés anual del 4% y Juan con $500 a una tasa de interés anual del 2.3%
-                                     en el año 2021. Escribir un programa recursivo que determine en cuantos años la cuenta
-                                     de Pedro será mayor de la de Juan.
-                                     """);
-        }
-        else if (ejercicio.equals("Ejercicio 6"))
-        {
-            asignacion.setAsignacion("""
-                                     Escriba un programa recursivo que resuelva la secuencia de ULAM: que pida un numero
-                                     entero positivo mayor que 1, si el número es par, este deberá de dividirse entre dos 
-                                     (este será el nuevo número) y si es impar deberá de multiplicarse por 3 y sumársele 1
-                                     (este será el nuevo número). El proceso termina cuando el número llega a 1.
-                                     Ejemplo:
-                                     N=5
-                                     Secuencia de ULAM:
-                                     N = 5 16 8 4 2 1
-                                     """);
-        }
-        
-        PanelVerAsignacion panel = new PanelVerAsignacion(asignacion); 
-        CambiarPanel(panel); 
+     
     }//GEN-LAST:event_jComboBox1ActionPerformed
     
     

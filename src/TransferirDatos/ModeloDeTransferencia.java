@@ -5,7 +5,7 @@ package TransferirDatos;
  *
  * @author Usuario
  * 
- * esta clase la utilizamos como un modelo para poder pasar string al formulario 
+ * Esta clase la utilizamos como un modelo para poder pasar string al formulario 
  * PanelVerAsignacion del paquete interfaz
  */
 public class ModeloDeTransferencia {

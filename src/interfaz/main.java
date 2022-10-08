@@ -331,7 +331,10 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLaboratorio2MouseReleased
 
     private void btnLaboratorio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaboratorio2ActionPerformed
-        // TODO add your handling code here:
+       
+        PanelLab2 panel = new PanelLab2();
+        
+        CambiarPanel(panel);
     }//GEN-LAST:event_btnLaboratorio2ActionPerformed
 
     private void btnLaboratorio3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLaboratorio3MouseEntered
