@@ -52,7 +52,6 @@ public class PanelLab3Ejercicio5 extends javax.swing.JPanel {
 
             arreglo = Calculo(cuentaPedro, interesPedro, cuentaJuan, interesJuan, year, 1.0, 1, 0, arreglo);
             
-            
             ArrayList<Object[]>info = new ArrayList<Object[]>();
             
             Object[] fila1 = new Object[]{arreglo[1][0],arreglo[1][1],arreglo[1][2]};
