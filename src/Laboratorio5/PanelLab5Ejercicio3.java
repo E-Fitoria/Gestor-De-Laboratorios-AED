@@ -1,15 +1,22 @@
 package Laboratorio5;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
  * @author Usuario
  */
 public class PanelLab5Ejercicio3 extends javax.swing.JPanel {
+    
+    // variables globales
+    Object[][]filas = new Object[ 10000][4 ];
+    Object[]columnas = new Object[] {"Id","Nombre", "Num.Empleado", "Salario"};
+    
+    ArrayList<Operaciones> lista = new ArrayList<>();
 
     /**
      * Creates new form PanelLab5Ejercicio1
@@ -27,21 +34,300 @@ public class PanelLab5Ejercicio3 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
+        txtSalario = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtNumEmpleado = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable = new javax.swing.JTable();
+        btnInsertar = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
+        btnCalcularNomina = new javax.swing.JButton();
+        jtextNomina = new javax.swing.JTextField();
+
         setBackground(new java.awt.Color(232, 232, 232));
+
+        jLabel3.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        jLabel3.setText("Salario :");
+
+        txtSalario.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        jLabel1.setText("Nombre :");
+
+        txtNombre.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        txtNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        jLabel2.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        jLabel2.setText("Numero de empleado :  ");
+
+        txtNumEmpleado.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+
+        jTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable.setEnabled(false);
+        jScrollPane2.setViewportView(jTable);
+
+        btnInsertar.setBackground(new java.awt.Color(226, 226, 226));
+        btnInsertar.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+        btnInsertar.setText("Insertar");
+        btnInsertar.setBorderPainted(false);
+        btnInsertar.setContentAreaFilled(false);
+        btnInsertar.setFocusable(false);
+        btnInsertar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnInsertar.setOpaque(true);
+        btnInsertar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnInsertarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnInsertarMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnInsertarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnInsertarMouseReleased(evt);
+            }
+        });
+        btnInsertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertarActionPerformed(evt);
+            }
+        });
+
+        btnImprimir.setBackground(new java.awt.Color(226, 226, 226));
+        btnImprimir.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+        btnImprimir.setText("Imprimir");
+        btnImprimir.setBorderPainted(false);
+        btnImprimir.setContentAreaFilled(false);
+        btnImprimir.setFocusable(false);
+        btnImprimir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnImprimir.setOpaque(true);
+        btnImprimir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnImprimirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnImprimirMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnImprimirMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnImprimirMouseReleased(evt);
+            }
+        });
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
+
+        btnCalcularNomina.setBackground(new java.awt.Color(226, 226, 226));
+        btnCalcularNomina.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+        btnCalcularNomina.setText("Calcular Nomina");
+        btnCalcularNomina.setBorderPainted(false);
+        btnCalcularNomina.setContentAreaFilled(false);
+        btnCalcularNomina.setFocusable(false);
+        btnCalcularNomina.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnCalcularNomina.setOpaque(true);
+        btnCalcularNomina.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCalcularNominaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCalcularNominaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnCalcularNominaMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnCalcularNominaMouseReleased(evt);
+            }
+        });
+        btnCalcularNomina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularNominaActionPerformed(evt);
+            }
+        });
+
+        jtextNomina.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 582, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                                    .addComponent(txtNumEmpleado)
+                                    .addComponent(txtSalario)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnInsertar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnImprimir)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnCalcularNomina, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jtextNomina)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 328, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtNumEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCalcularNomina, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtextNomina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnInsertarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertarMouseEntered
+        btnInsertar.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btnInsertarMouseEntered
+
+    private void btnInsertarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertarMouseExited
+        btnInsertar.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnInsertarMouseExited
+
+    private void btnInsertarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertarMousePressed
+        btnInsertar.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btnInsertarMousePressed
+
+    private void btnInsertarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertarMouseReleased
+        btnInsertar.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnInsertarMouseReleased
+
+    private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
+        
+        try{
+            Operaciones empleado = new Operaciones();
+            empleado.asignar(txtNombre.getText(), Integer.parseInt(txtNumEmpleado.getText()), Double.parseDouble(txtSalario.getText()));
+
+            lista.add(empleado);
+
+            for(int f = 0; f < lista.size(); f++) {
+                   filas[f][0] = f + 1;
+                   filas[f][1] = lista.get(f).emp.nombre;
+                   filas[f][2] = lista.get(f).emp.id;
+                   filas[f][3] = lista.get(f).emp.salario;
+            }
+            
+            txtNombre.setText(null);
+            txtNumEmpleado.setText(null);
+            txtSalario.setText(null);
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "Revise que los valores ingresados\nsean del mismo tipo que el campo");
+        }
+    }//GEN-LAST:event_btnInsertarActionPerformed
+
+    private void btnImprimirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImprimirMouseEntered
+        btnImprimir.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btnImprimirMouseEntered
+
+    private void btnImprimirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImprimirMouseExited
+        btnImprimir.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnImprimirMouseExited
+
+    private void btnImprimirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImprimirMousePressed
+        btnImprimir.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btnImprimirMousePressed
+
+    private void btnImprimirMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImprimirMouseReleased
+        btnImprimir.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnImprimirMouseReleased
+
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+
+        jTable.setModel(new DefaultTableModel(filas,columnas)); 
+    }//GEN-LAST:event_btnImprimirActionPerformed
+
+    private void btnCalcularNominaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCalcularNominaMouseEntered
+        btnCalcularNomina.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btnCalcularNominaMouseEntered
+
+    private void btnCalcularNominaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCalcularNominaMouseExited
+        btnCalcularNomina.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnCalcularNominaMouseExited
+
+    private void btnCalcularNominaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCalcularNominaMousePressed
+        btnCalcularNomina.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btnCalcularNominaMousePressed
+
+    private void btnCalcularNominaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCalcularNominaMouseReleased
+        btnCalcularNomina.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnCalcularNominaMouseReleased
+
+    private void btnCalcularNominaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularNominaActionPerformed
+        double nomina = 0.0;
+        for (int i = 0; i < lista.size(); i++) {
+           nomina +=  lista.get(i).emp.salario;
+        }
+        jtextNomina.setText(""+nomina);
+    }//GEN-LAST:event_btnCalcularNominaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCalcularNomina;
+    private javax.swing.JButton btnImprimir;
+    private javax.swing.JButton btnInsertar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable;
+    private javax.swing.JTextField jtextNomina;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNumEmpleado;
+    private javax.swing.JTextField txtSalario;
     // End of variables declaration//GEN-END:variables
 }

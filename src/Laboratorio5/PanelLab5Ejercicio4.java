@@ -5,10 +5,6 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 
 /**
  *
@@ -185,13 +181,13 @@ public class PanelLab5Ejercicio4 extends javax.swing.JPanel {
      * 
      */
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
-          String cadena = textIngresado.getText();
-          lista.add(cadena);
-          String [] cadena2 = new String[1];
-          cadena2[0] = lista.get(lista.size()-1);
-          modelo.addRow(cadena2); //agregamos una fila con los datos de cadena2 a nuestro modelo que estamos creando
-          jTablePilas.setModel(modelo);  //mostramos nuestro modelo de la tabla en el jtable
-          textIngresado.setText(""); 
+        String cadena = textIngresado.getText();
+        lista.add(cadena);
+        String [] cadena2 = new String[1];
+        cadena2[0] = lista.get(lista.size()-1);
+        modelo.addRow(cadena2); //agregamos una fila con los datos de cadena2 a nuestro modelo que estamos creando
+        jTablePilas.setModel(modelo);  //mostramos nuestro modelo de la tabla en el jtable
+        textIngresado.setText(""); 
     }//GEN-LAST:event_btnInsertarActionPerformed
 
     private void btnEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseEntered

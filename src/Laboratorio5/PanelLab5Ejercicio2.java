@@ -1,15 +1,19 @@
 package Laboratorio5;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+import java.awt.Color;
+import java.util.ArrayList;
+
 
 /**
  *
  * @author Usuario
  */
 public class PanelLab5Ejercicio2 extends javax.swing.JPanel {
+    
+    // Mis variables
+    ArrayList<Integer> numeros = new ArrayList<>();
+    ArrayList<Integer> positivos = new ArrayList<>();
+    ArrayList<Integer> negativos = new ArrayList<>();
 
     /**
      * Creates new form PanelLab5Ejercicio1
@@ -27,21 +31,154 @@ public class PanelLab5Ejercicio2 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
+        txtPositivos = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtNegativos = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        txtNumeros = new javax.swing.JTextField();
+        btnSeparar = new javax.swing.JButton();
+
         setBackground(new java.awt.Color(232, 232, 232));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 582, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 328, Short.MAX_VALUE)
-        );
-    }// </editor-fold>//GEN-END:initComponents
+        jLabel2.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        jLabel2.setText("Positivos: ");
+
+        txtPositivos.setEditable(false);
+        txtPositivos.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        jLabel3.setText("Negativos :\\");
+
+            txtNegativos.setEditable(false);
+            txtNegativos.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+
+            jLabel1.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+            jLabel1.setText("Ingrese los numeros: ");
+
+            txtNumeros.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+            txtNumeros.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+            btnSeparar.setBackground(new java.awt.Color(226, 226, 226));
+            btnSeparar.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+            btnSeparar.setText("Separar");
+            btnSeparar.setBorderPainted(false);
+            btnSeparar.setContentAreaFilled(false);
+            btnSeparar.setFocusable(false);
+            btnSeparar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+            btnSeparar.setOpaque(true);
+            btnSeparar.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseEntered(java.awt.event.MouseEvent evt) {
+                    btnSepararMouseEntered(evt);
+                }
+                public void mouseExited(java.awt.event.MouseEvent evt) {
+                    btnSepararMouseExited(evt);
+                }
+                public void mousePressed(java.awt.event.MouseEvent evt) {
+                    btnSepararMousePressed(evt);
+                }
+                public void mouseReleased(java.awt.event.MouseEvent evt) {
+                    btnSepararMouseReleased(evt);
+                }
+            });
+            btnSeparar.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnSepararActionPerformed(evt);
+                }
+            });
+
+            javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+            this.setLayout(layout);
+            layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(47, 47, 47)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnSeparar)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3))
+                            .addGap(40, 40, 40)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtNumeros)
+                                .addComponent(txtPositivos)
+                                .addComponent(txtNegativos, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addContainerGap(66, Short.MAX_VALUE))
+            );
+            layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(46, 46, 46)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(txtNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(txtPositivos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(txtNegativos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(38, 38, 38)
+                    .addComponent(btnSeparar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(141, Short.MAX_VALUE))
+            );
+        }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSepararMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSepararMouseEntered
+        btnSeparar.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btnSepararMouseEntered
+
+    private void btnSepararMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSepararMouseExited
+        btnSeparar.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnSepararMouseExited
+
+    private void btnSepararMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSepararMousePressed
+        btnSeparar.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btnSepararMousePressed
+
+    private void btnSepararMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSepararMouseReleased
+        btnSeparar.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnSepararMouseReleased
+
+    private void btnSepararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSepararActionPerformed
+
+        numeros.removeAll(numeros);
+        positivos.removeAll(positivos);
+        negativos.removeAll(negativos);
+
+        String[] nums = txtNumeros.getText().split(",");
+        String posi = "";
+        String nega = "";
+
+        for (int i = 0; i < nums.length; i++) {
+            numeros.add(Integer.parseInt(nums[i]));
+
+            if (numeros.get(i) < 0) {
+                negativos.add(Integer.parseInt(nums[i]));
+                nega += nums[i] + ",";
+            } else if (numeros.get(i) > 0) {
+                positivos.add(Integer.parseInt(nums[i]));
+                posi += nums[i] + ",";
+            }
+
+        }
+
+        txtPositivos.setText(posi);
+        txtNegativos.setText(nega);
+    }//GEN-LAST:event_btnSepararActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSeparar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField txtNegativos;
+    private javax.swing.JTextField txtNumeros;
+    private javax.swing.JTextField txtPositivos;
     // End of variables declaration//GEN-END:variables
 }

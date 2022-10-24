@@ -1,9 +1,9 @@
 package Laboratorio5;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -11,11 +11,29 @@ package Laboratorio5;
  */
 public class PanelLab5Ejercicio1 extends javax.swing.JPanel {
 
+     public class Alumno {
+        
+        String nombre, carrera, carnet;
+    }
+    
+    public class Informacion {
+        
+       ArrayList<Alumno> lista = new ArrayList<>();
+    }
+    
+    // Mis variables
+    Informacion listaAlumnos = new Informacion();
+    Object[][]filas = new Object[ 10000][4 ];
+    Object[]columnas = new Object[] {"Indice","Nombre", "Carrera", "Carnet"};
+    
     /**
      * Creates new form PanelLab5Ejercicio1
      */
     public PanelLab5Ejercicio1() {
         initComponents();
+        txtNombre.setText(null);
+        txtCarrera.setText(null);
+        txtCarnet.setText(null);
     }
 
     /**
@@ -27,21 +45,258 @@ public class PanelLab5Ejercicio1 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        btnInsertar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        txtCarrera = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtCarnet = new javax.swing.JTextField();
+
         setBackground(new java.awt.Color(232, 232, 232));
+
+        jLabel1.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        jLabel1.setText("Nombre :");
+
+        txtNombre.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        txtNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        btnInsertar.setBackground(new java.awt.Color(226, 226, 226));
+        btnInsertar.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+        btnInsertar.setText("Insertar");
+        btnInsertar.setBorderPainted(false);
+        btnInsertar.setContentAreaFilled(false);
+        btnInsertar.setFocusable(false);
+        btnInsertar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnInsertar.setOpaque(true);
+        btnInsertar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnInsertarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnInsertarMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnInsertarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnInsertarMouseReleased(evt);
+            }
+        });
+        btnInsertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setBackground(new java.awt.Color(226, 226, 226));
+        btnEliminar.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setBorderPainted(false);
+        btnEliminar.setContentAreaFilled(false);
+        btnEliminar.setFocusable(false);
+        btnEliminar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnEliminar.setOpaque(true);
+        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEliminarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEliminarMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnEliminarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnEliminarMouseReleased(evt);
+            }
+        });
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        jTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable.setEnabled(false);
+        jScrollPane2.setViewportView(jTable);
+
+        jLabel2.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        jLabel2.setText("Carrera :");
+
+        txtCarrera.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        jLabel3.setText("Carnet :");
+
+        txtCarnet.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 582, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                            .addComponent(txtCarrera, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                            .addComponent(txtCarnet, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnInsertar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 328, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnInsertarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertarMouseEntered
+        btnInsertar.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btnInsertarMouseEntered
+
+    private void btnInsertarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertarMouseExited
+        btnInsertar.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnInsertarMouseExited
+
+    private void btnInsertarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertarMousePressed
+        btnInsertar.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btnInsertarMousePressed
+
+    private void btnInsertarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertarMouseReleased
+        btnInsertar.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnInsertarMouseReleased
+
+    private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
+        
+        // Funcionalidad click del mouse
+        Alumno nuevoAlumno = new Alumno();
+        nuevoAlumno.nombre = txtNombre.getText();
+        nuevoAlumno.carrera = txtCarrera.getText();
+        nuevoAlumno.carnet = txtCarnet.getText();
+        
+        if (nuevoAlumno.nombre.equals("") || nuevoAlumno.carrera.equals("") || nuevoAlumno.carnet.equals("")) 
+        {    
+            JOptionPane.showMessageDialog(null,"Debe llenar los campos para ingresar"); 
+                       
+        }
+        else 
+        {
+            listaAlumnos.lista.add(nuevoAlumno);
+
+            // configurar la tabla
+            for (int f = 0; f < listaAlumnos.lista.size(); f++) {
+                filas[f][0] = f + 1;
+                filas[f][1] = listaAlumnos.lista.get(f).nombre;
+                filas[f][2] = listaAlumnos.lista.get(f).carrera;
+                filas[f][3] = listaAlumnos.lista.get(f).carnet;
+            }
+
+            jTable.setModel(new DefaultTableModel(filas, columnas));  
+            
+            txtNombre.setText(null);
+            txtCarrera.setText(null);
+            txtCarnet.setText(null);  
+        }     
+    }//GEN-LAST:event_btnInsertarActionPerformed
+
+    private void btnEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseEntered
+        btnEliminar.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btnEliminarMouseEntered
+
+    private void btnEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseExited
+        btnEliminar.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnEliminarMouseExited
+
+    private void btnEliminarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMousePressed
+        btnEliminar.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btnEliminarMousePressed
+
+    private void btnEliminarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseReleased
+        btnEliminar.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnEliminarMouseReleased
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        
+        try{
+            filas[listaAlumnos.lista.size() - 1][0] = "";
+            filas[listaAlumnos.lista.size() - 1][1] = "";
+            filas[listaAlumnos.lista.size() - 1][2] = "";
+            filas[listaAlumnos.lista.size() - 1][3] = "";
+            listaAlumnos.lista.remove(0);
+
+            for (int f = 0; f < listaAlumnos.lista.size(); f++) {
+                filas[f][0] = f;
+                filas[f][1] = listaAlumnos.lista.get(f).nombre;
+                filas[f][2] = listaAlumnos.lista.get(f).carrera;
+                filas[f][3] = listaAlumnos.lista.get(f).carnet;
+
+            }
+
+            jTable.setModel(new DefaultTableModel(filas, columnas));
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"Ingrese alumnos para poder eliminar");
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnInsertar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable;
+    private javax.swing.JTextField txtCarnet;
+    private javax.swing.JTextField txtCarrera;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

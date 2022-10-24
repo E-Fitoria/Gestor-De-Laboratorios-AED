@@ -118,6 +118,11 @@ public class main extends javax.swing.JFrame {
                 btnLaboratorio1MouseReleased(evt);
             }
         });
+        btnLaboratorio1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLaboratorio1ActionPerformed(evt);
+            }
+        });
 
         btnLaboratorio2.setBackground(new java.awt.Color(1, 50, 170));
         btnLaboratorio2.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
@@ -509,6 +514,12 @@ public class main extends javax.swing.JFrame {
         
         CambiarPanel(panel);
     }//GEN-LAST:event_btnLaboratorio5ActionPerformed
+
+    private void btnLaboratorio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaboratorio1ActionPerformed
+         PanelLab1 panel = new PanelLab1();
+        
+        CambiarPanel(panel);
+    }//GEN-LAST:event_btnLaboratorio1ActionPerformed
 
     private void CambiarPanel(JPanel panel)
     {

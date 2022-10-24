@@ -1,15 +1,15 @@
 package Laboratorio5;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author Usuario
- */
 public class PanelLab5Ejercicio5 extends javax.swing.JPanel {
+    
+    // Mis variables
+    ArrayList<Integer> numeros = new ArrayList<>();
+    ArrayList<Integer> mayores = new ArrayList<>();
+    ArrayList<Integer> menores = new ArrayList<>();
 
     /**
      * Creates new form PanelLab5Ejercicio1
@@ -27,21 +27,160 @@ public class PanelLab5Ejercicio5 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnSeparar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txtMayores = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtMenores = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        txtNumeros = new javax.swing.JTextField();
+
         setBackground(new java.awt.Color(232, 232, 232));
+
+        btnSeparar.setBackground(new java.awt.Color(226, 226, 226));
+        btnSeparar.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+        btnSeparar.setText("Separar");
+        btnSeparar.setBorderPainted(false);
+        btnSeparar.setContentAreaFilled(false);
+        btnSeparar.setFocusable(false);
+        btnSeparar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnSeparar.setOpaque(true);
+        btnSeparar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSepararMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSepararMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnSepararMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnSepararMouseReleased(evt);
+            }
+        });
+        btnSeparar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSepararActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        jLabel2.setText("Mayores de 10:");
+
+        txtMayores.setEditable(false);
+        txtMayores.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        jLabel3.setText("Menores de 10:");
+
+        txtMenores.setEditable(false);
+        txtMenores.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        jLabel1.setText("Ingrese los numeros: ");
+
+        txtNumeros.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        txtNumeros.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 582, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSeparar)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNumeros)
+                            .addComponent(txtMayores)
+                            .addComponent(txtMenores, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 328, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtMayores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtMenores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addComponent(btnSeparar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(141, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSepararMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSepararMouseEntered
+        btnSeparar.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btnSepararMouseEntered
+
+    private void btnSepararMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSepararMouseExited
+        btnSeparar.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnSepararMouseExited
+
+    private void btnSepararMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSepararMousePressed
+        btnSeparar.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btnSepararMousePressed
+
+    private void btnSepararMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSepararMouseReleased
+        btnSeparar.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnSepararMouseReleased
+
+    private void btnSepararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSepararActionPerformed
+        try{
+                  
+            numeros.removeAll(numeros);
+            mayores.removeAll(mayores);
+            menores.removeAll(menores);
+
+            String[] nums = txtNumeros.getText().split(",");
+            String menor = "";
+            String mayor = "";
+
+            for (int i = 0; i < nums.length; i++) {
+                numeros.add(Integer.parseInt(nums[i]));
+
+                if (numeros.get(i) > 10) {
+                    mayores.add(Integer.parseInt(nums[i]));
+                    mayor += nums[i] + ",";
+                } else if (numeros.get(i) < 10) {
+                    menores.add(Integer.parseInt(nums[i]));
+                    menor += nums[i] + ",";
+                }
+
+            }
+
+            txtMayores.setText(mayor);
+            txtMenores.setText(menor);
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese valores numéricos separados por coma (,)");
+        }
+    }//GEN-LAST:event_btnSepararActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSeparar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField txtMayores;
+    private javax.swing.JTextField txtMenores;
+    private javax.swing.JTextField txtNumeros;
     // End of variables declaration//GEN-END:variables
 }
