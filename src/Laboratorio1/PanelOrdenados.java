@@ -4,6 +4,7 @@ import static Laboratorio1.ApartamentosOrdenado.Eliminar;
 import static Laboratorio1.ApartamentosOrdenado.ImprimirDepartamento;
 import static Laboratorio1.ApartamentosOrdenado.Insertar;
 import static Laboratorio1.ApartamentosOrdenado.ModifPrecio;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class PanelOrdenados extends javax.swing.JPanel {
      Estos los usaremos para nuestro panel en el que vamos a desarrollar el jercicio de 
     departamentos con arreglos odenados
     */
-    private int cantidad_departamentos, n = -1;
+    private int cantidad_departamentos = 0, n = -1;
     private String ubicaciones[];
     private Integer extensiones[];
     private Integer precios[];
@@ -354,19 +355,25 @@ public class PanelOrdenados extends javax.swing.JPanel {
        {
            n = Insertar(ubicaciones, extensiones, precios, n, cantidad_departamentos);
 
-           if (n > -1) {
-               if (ubicaciones[n] != null && extensiones[n] != null && precios[n] != null) {
-                   jRadioButton_DarDeAlta.setEnabled(true);
-                   jRadioButton_ActualizarPrecio.setEnabled(true);
-                   jRadioButton_InfoDepartamento.setEnabled(true);
-                   jRadioButton_ListarInfo.setEnabled(true);
-               }
+           if (n > -1) 
+           {
+               jRadioButton_DarDeAlta.setEnabled(true);
+               jRadioButton_ActualizarPrecio.setEnabled(true);
+               jRadioButton_InfoDepartamento.setEnabled(true);
+               jRadioButton_ListarInfo.setEnabled(true);
            }
-       
        }
        else if (jRadioButton_DarDeAlta.isSelected() == true)
        {
            n = Eliminar(ubicaciones, extensiones, precios, n);
+           
+            if (n < 0)
+           {    
+               jRadioButton_DarDeAlta.setEnabled(false);
+               jRadioButton_ActualizarPrecio.setEnabled(false);
+               jRadioButton_InfoDepartamento.setEnabled(false);
+               jRadioButton_ListarInfo.setEnabled(false);
+           }
        }
        else if (jRadioButton_ActualizarPrecio.isSelected() == true)
        {
