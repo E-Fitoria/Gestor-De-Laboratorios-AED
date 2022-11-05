@@ -1,8 +1,10 @@
 
 package Laboratorio4;
 
-//import static Clases.Convertidor.Postfija;
-import static Laboratorio4.Convertidor.Postfija;
+//import static Clases.Convertidor_Postfija.Postfija;
+import static Laboratorio4.Convertidor_Postfija.Postfija;
+import static Laboratorio4.Convertidor_Prefija.Prefija;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,24 +31,58 @@ public class PanelLab4Convertidor extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         textIngresaExpresion = new javax.swing.JTextField();
-        btnConvertir = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
         textMostrar_post_fija = new javax.swing.JTextField();
+        btnConvert = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        textMostrar_pre_fija = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(232, 232, 232));
 
+        jLabel1.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
         jLabel1.setText("Ingresa la expresión : ");
 
-        btnConvertir.setText("Convertir");
-        btnConvertir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConvertirActionPerformed(evt);
-            }
-        });
+        textIngresaExpresion.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
 
+        jLabel2.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
         jLabel2.setText("Expresion convertida a PostFija :");
 
         textMostrar_post_fija.setEditable(false);
+        textMostrar_post_fija.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+
+        btnConvert.setBackground(new java.awt.Color(216, 216, 216));
+        btnConvert.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+        btnConvert.setText("Convertir");
+        btnConvert.setBorderPainted(false);
+        btnConvert.setContentAreaFilled(false);
+        btnConvert.setFocusable(false);
+        btnConvert.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnConvert.setOpaque(true);
+        btnConvert.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnConvertMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnConvertMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnConvertMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnConvertMouseReleased(evt);
+            }
+        });
+        btnConvert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConvertActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        jLabel3.setText("Expresion convertida a Prefija :");
+
+        textMostrar_pre_fija.setEditable(false);
+        textMostrar_pre_fija.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -54,54 +90,85 @@ public class PanelLab4Convertidor extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(textMostrar_post_fija))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(textIngresaExpresion, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(50, 50, 50)
-                .addComponent(btnConvertir)
-                .addContainerGap(97, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textIngresaExpresion, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addComponent(btnConvert))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textMostrar_post_fija, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textMostrar_pre_fija, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(textIngresaExpresion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConvertir))
+                    .addComponent(btnConvert, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(103, 103, 103)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(textMostrar_post_fija, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(textMostrar_pre_fija, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertirActionPerformed
+    private void btnConvertMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConvertMouseEntered
+        btnConvert.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btnConvertMouseEntered
+
+    private void btnConvertMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConvertMouseExited
+        btnConvert.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnConvertMouseExited
+
+    private void btnConvertMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConvertMousePressed
+        btnConvert.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btnConvertMousePressed
+
+    private void btnConvertMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConvertMouseReleased
+        btnConvert.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnConvertMouseReleased
+
+    private void btnConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertActionPerformed
+
         try
         {
             String expresion_convertida = Postfija(textIngresaExpresion.getText());
-            
+            String expresion_preFija = Prefija(textIngresaExpresion.getText());
+            textMostrar_pre_fija.setText(expresion_preFija);
             textMostrar_post_fija.setText(expresion_convertida);
         }
         catch(Exception e)
         {
             JOptionPane.showMessageDialog(null,"Error en la expresion");
         }
-    }//GEN-LAST:event_btnConvertirActionPerformed
+    }//GEN-LAST:event_btnConvertActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btnConvertir;
+    private javax.swing.JButton btnConvert;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField textIngresaExpresion;
     private javax.swing.JTextField textMostrar_post_fija;
+    private javax.swing.JTextField textMostrar_pre_fija;
     // End of variables declaration//GEN-END:variables
 }

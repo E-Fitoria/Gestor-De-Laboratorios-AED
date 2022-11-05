@@ -25,7 +25,8 @@ public class ApartamentosOrdenado {
         {
             n++;
         
-            if (!ValidarJOption_ParaTexto(ubicaciones,n,"Ingrese la ubicacion del departamento") || !ValidarJOption_ParaInt(extensiones, n, "Ingrese la extensión en metros cuadrados")
+            if (!ValidarJOption_ParaTexto(ubicaciones,n,"Ingrese la ubicacion del departamento") 
+                || !ValidarJOption_ParaInt(extensiones, n, "Ingrese la extensión en metros cuadrados")
                 || !ValidarJOption_ParaInt(precios, n, "Ingrese el precio"))
             {
                 n--;
@@ -174,5 +175,32 @@ public class ApartamentosOrdenado {
             JOptionPane.showMessageDialog(null, "Array vacio");
         }
     }
- 
+    
+    public static void OrdenarPorExtension(String ubicaciones[], Integer extensiones[], Integer precios[])
+    {
+        //Metodo  burbuja
+        for (int k = 0; k < ((extensiones.length) -1) ; k++){
+
+            for (int j = 0; j < extensiones.length - 1; j++){
+
+                if (extensiones[j] > extensiones[j+1]){
+
+                    String ubi = ubicaciones[j];
+                    Integer ext = extensiones[j];
+                    Integer precio = precios[j];
+
+                    ubicaciones[j] = ubicaciones[j+1];
+                    ubicaciones[j+1] = ubi;
+
+                    extensiones[j] = extensiones[j+1];
+                    extensiones[j+1] = ext;
+
+                    precios[j] = precios[j+1];
+                    precios[j+1] = precio;
+                }
+
+            }
+        }//fin burbuja
+
+    }
 }

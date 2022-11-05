@@ -54,6 +54,38 @@ public class ValidarEntradaJOptionPane {
         return opc;
     }
     
+    public static boolean ValidarJOption_ParaDouble(Double array[],int pos, String cadena){
+        
+        boolean opc;
+                
+        do  
+        {  
+            try 
+            {
+
+                String dato = JOptionPane.showInputDialog(cadena);
+
+                if (dato == null) {
+                    return false;
+                }
+                else
+                {
+                    array[pos] = Double.parseDouble(dato);
+                    opc = true;
+                } 
+            }
+            catch (Exception e) 
+            {
+                JOptionPane.showMessageDialog(null,"Ingresa valores válidos");
+                opc = false;
+            }
+            
+        }while (opc != true); 
+                
+        return opc;
+    }
+    
+    
     /**Esta funcion valida que los valores ingresados por un usuario en un JOptionPane sean
      * de tipo string sin caracteres especiales ni espacios, solo debe ingresar letras
      * 
@@ -74,15 +106,13 @@ public class ValidarEntradaJOptionPane {
        */
        
         boolean opc = false;       
-        int contador = 0;        
-        
+
         do 
         {   
-            opc = false;
-            contador = 0;
-            
+
             try 
             {
+                int contador = 0;
                 String dato = JOptionPane.showInputDialog(cadena);
 
                 if (dato == null ) 
@@ -108,7 +138,7 @@ public class ValidarEntradaJOptionPane {
                 else
                 {
                     array[pos] = dato;
-                    opc = true;
+                    return true;
                 }      
             }
             catch (Exception e) 
@@ -186,4 +216,20 @@ public class ValidarEntradaJOptionPane {
                 
         return dato; 
     }
+
+
+    public static boolean ValidarJOption_ParaOpc(Integer array[], int pos, String cadena) {
+
+        int dato = JOptionPane.showConfirmDialog(null, cadena, "Seleccione", JOptionPane.YES_NO_OPTION, 
+                                                 JOptionPane.QUESTION_MESSAGE);
+
+        if (dato == -1) 
+        {
+            return false;    
+        } 
+        
+        array[pos] = dato; //0 para si, 1 para no
+        return true;
+    }
+
 }

@@ -1,5 +1,6 @@
 package Laboratorio5;
 
+import static Laboratorio1.ValidarEntradaJOptionPane.ValidarJOption_ParaTexto01;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -32,7 +33,6 @@ public class PanelLab5Ejercicio1 extends javax.swing.JPanel {
     public PanelLab5Ejercicio1() {
         initComponents();
         txtNombre.setText(null);
-        txtCarrera.setText(null);
         txtCarnet.setText(null);
     }
 
@@ -52,9 +52,10 @@ public class PanelLab5Ejercicio1 extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        txtCarrera = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtCarnet = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        btnMostrar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(232, 232, 232));
 
@@ -94,7 +95,7 @@ public class PanelLab5Ejercicio1 extends javax.swing.JPanel {
 
         btnEliminar.setBackground(new java.awt.Color(226, 226, 226));
         btnEliminar.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
-        btnEliminar.setText("Eliminar");
+        btnEliminar.setText("Eliminar Todo");
         btnEliminar.setBorderPainted(false);
         btnEliminar.setContentAreaFilled(false);
         btnEliminar.setFocusable(false);
@@ -142,12 +143,46 @@ public class PanelLab5Ejercicio1 extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
         jLabel2.setText("Carrera :");
 
-        txtCarrera.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-
         jLabel3.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
         jLabel3.setText("Carnet :");
 
         txtCarnet.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingeniería en Computación", "Ingeniería  Electrónica", "Ingeniería Eléctrica", "Ingeniería en Telecomunicaciones" }));
+        jComboBox1.setSelectedIndex(-1);
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        btnMostrar.setBackground(new java.awt.Color(226, 226, 226));
+        btnMostrar.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+        btnMostrar.setText("Mostrar");
+        btnMostrar.setBorderPainted(false);
+        btnMostrar.setContentAreaFilled(false);
+        btnMostrar.setFocusable(false);
+        btnMostrar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnMostrar.setOpaque(true);
+        btnMostrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMostrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMostrarMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnMostrarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnMostrarMouseReleased(evt);
+            }
+        });
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -165,11 +200,12 @@ public class PanelLab5Ejercicio1 extends javax.swing.JPanel {
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                            .addComponent(txtCarrera, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                            .addComponent(txtCarnet, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE))
+                            .addComponent(txtCarnet, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnInsertar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnMostrar, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGap(34, 34, 34))
         );
@@ -184,15 +220,20 @@ public class PanelLab5Ejercicio1 extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -215,34 +256,28 @@ public class PanelLab5Ejercicio1 extends javax.swing.JPanel {
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
         
         // Funcionalidad click del mouse
-        Alumno nuevoAlumno = new Alumno();
-        nuevoAlumno.nombre = txtNombre.getText();
-        nuevoAlumno.carrera = txtCarrera.getText();
-        nuevoAlumno.carnet = txtCarnet.getText();
-        
-        if (nuevoAlumno.nombre.equals("") || nuevoAlumno.carrera.equals("") || nuevoAlumno.carnet.equals("")) 
-        {    
-            JOptionPane.showMessageDialog(null,"Debe llenar los campos para ingresar"); 
-                       
-        }
-        else 
+        try
         {
-            listaAlumnos.lista.add(nuevoAlumno);
+            String carrera = jComboBox1.getSelectedItem().toString();
+            Alumno nuevoAlumno = new Alumno();
+            nuevoAlumno.nombre = txtNombre.getText();
+            nuevoAlumno.carrera = carrera;
+            nuevoAlumno.carnet = txtCarnet.getText();
 
-            // configurar la tabla
-            for (int f = 0; f < listaAlumnos.lista.size(); f++) {
-                filas[f][0] = f + 1;
-                filas[f][1] = listaAlumnos.lista.get(f).nombre;
-                filas[f][2] = listaAlumnos.lista.get(f).carrera;
-                filas[f][3] = listaAlumnos.lista.get(f).carnet;
+            if (nuevoAlumno.nombre.equals("") || nuevoAlumno.carnet.equals("")) {
+                JOptionPane.showMessageDialog(null, "Debe llenar los campos para ingresar");
+
+            } else {
+                listaAlumnos.lista.add(nuevoAlumno);
+                txtNombre.setText(null);
+                txtCarnet.setText(null);
             }
-
-            jTable.setModel(new DefaultTableModel(filas, columnas));  
-            
-            txtNombre.setText(null);
-            txtCarrera.setText(null);
-            txtCarnet.setText(null);  
-        }     
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"Seleccione una carrera y llene los campos");
+        }
+        
     }//GEN-LAST:event_btnInsertarActionPerformed
 
     private void btnEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseEntered
@@ -286,17 +321,94 @@ public class PanelLab5Ejercicio1 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnMostrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarMouseEntered
+         btnMostrar.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btnMostrarMouseEntered
+
+    private void btnMostrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarMouseExited
+         btnMostrar.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnMostrarMouseExited
+
+    private void btnMostrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarMousePressed
+        btnMostrar.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btnMostrarMousePressed
+
+    private void btnMostrarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarMouseReleased
+        btnMostrar.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnMostrarMouseReleased
+
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        
+        String cadena = JOptionPane.showInputDialog("Ingrese la carrera");
+        
+        if (cadena == null || cadena.isEmpty())
+        {
+            return;
+        }
+        
+        boolean opc = false;
+        int cont = 0;
+        
+        for (int i = 0; i < listaAlumnos.lista.size(); i++)
+        {
+            if (cadena.equals(listaAlumnos.lista.get(i).carrera))
+            {
+                filas[cont][0] = cont + 1;
+                filas[cont][1] = listaAlumnos.lista.get(i).nombre;
+                filas[cont][2] = listaAlumnos.lista.get(i).carrera;
+                filas[cont][3] = listaAlumnos.lista.get(i).carnet; 
+                opc = true;
+                cont++;
+            } 
+            else
+            {
+                opc = false;
+            }
+        }
+        
+        if (opc == false)
+        {
+            JOptionPane.showMessageDialog(null,"No hay ningún estudiante en esta carrera");
+            return;
+        }
+        // configurar la tabla
+
+        switch(cadena)
+        {
+            case "Ingeniería en Computación":
+                jTable.setModel(new DefaultTableModel(filas, columnas));
+                break;
+            case "Ingeniería  Electrónica":
+                jTable.setModel(new DefaultTableModel(filas, columnas));
+                break;
+            case "Ingeniería Eléctrica":
+                jTable.setModel(new DefaultTableModel(filas, columnas));
+                break;
+            case "Ingeniería en Telecomunicaciones":
+                jTable.setModel(new DefaultTableModel(filas, columnas));
+                break;
+            default :
+                JOptionPane.showMessageDialog(null,"La carrera de " + cadena + "no existe");
+                return;
+        }
+    }//GEN-LAST:event_btnMostrarActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertar;
+    private javax.swing.JButton btnMostrar;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable;
     private javax.swing.JTextField txtCarnet;
-    private javax.swing.JTextField txtCarrera;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,6 +3,10 @@ package Laboratorio4;
 
 //import Clases.Pila;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author Usuario
@@ -29,58 +33,91 @@ public class PanelLab4Pilas extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jtextIngresa = new javax.swing.JTextField();
-        btnApilar = new javax.swing.JButton();
-        btnDesApilar = new javax.swing.JButton();
-        btnVer = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         textPila = new javax.swing.JList<>();
+        btn_Apilar = new javax.swing.JButton();
+        btn_DesApliar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(232, 232, 232));
 
+        jLabel1.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
         jLabel1.setText("Ingrese: ");
 
-        btnApilar.setText("Apilar");
-        btnApilar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnApilarActionPerformed(evt);
-            }
-        });
+        jtextIngresa.setFont(new java.awt.Font("Consolas", 2, 12)); // NOI18N
 
-        btnDesApilar.setText("DesApilar");
-        btnDesApilar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDesApilarActionPerformed(evt);
-            }
-        });
-
-        btnVer.setText("Visualizar");
-        btnVer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerActionPerformed(evt);
-            }
-        });
-
+        textPila.setFont(new java.awt.Font("Consolas", 2, 12)); // NOI18N
         jScrollPane1.setViewportView(textPila);
+
+        btn_Apilar.setBackground(new java.awt.Color(216, 216, 216));
+        btn_Apilar.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+        btn_Apilar.setText("Apilar");
+        btn_Apilar.setBorderPainted(false);
+        btn_Apilar.setContentAreaFilled(false);
+        btn_Apilar.setFocusable(false);
+        btn_Apilar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_Apilar.setOpaque(true);
+        btn_Apilar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_ApilarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_ApilarMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_ApilarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_ApilarMouseReleased(evt);
+            }
+        });
+        btn_Apilar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ApilarActionPerformed(evt);
+            }
+        });
+
+        btn_DesApliar.setBackground(new java.awt.Color(216, 216, 216));
+        btn_DesApliar.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+        btn_DesApliar.setText("DesApilar");
+        btn_DesApliar.setBorderPainted(false);
+        btn_DesApliar.setContentAreaFilled(false);
+        btn_DesApliar.setFocusable(false);
+        btn_DesApliar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_DesApliar.setOpaque(true);
+        btn_DesApliar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_DesApliarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_DesApliarMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_DesApliarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn_DesApliarMouseReleased(evt);
+            }
+        });
+        btn_DesApliar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_DesApliarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
                         .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
+                        .addGap(29, 29, 29)
                         .addComponent(jtextIngresa, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btnApilar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnDesApilar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(btnVer))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                    .addComponent(btn_Apilar)
+                    .addComponent(btn_DesApliar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75))
         );
@@ -94,11 +131,9 @@ public class PanelLab4Pilas extends javax.swing.JPanel {
                             .addComponent(jLabel1)
                             .addComponent(jtextIngresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(btnApilar)
+                        .addComponent(btn_Apilar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnDesApilar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnVer))
+                        .addComponent(btn_DesApliar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -106,19 +141,36 @@ public class PanelLab4Pilas extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnApilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApilarActionPerformed
-        //crear objeto
+    private void btn_ApilarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ApilarMouseEntered
+        btn_Apilar.setBackground(new Color(59, 89, 152));
+    }//GEN-LAST:event_btn_ApilarMouseEntered
+
+    private void btn_ApilarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ApilarMouseExited
+        btn_Apilar.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btn_ApilarMouseExited
+
+    private void btn_ApilarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ApilarMousePressed
+        btn_Apilar.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btn_ApilarMousePressed
+
+    private void btn_ApilarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ApilarMouseReleased
+        btn_Apilar.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btn_ApilarMouseReleased
+
+    private void btn_ApilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ApilarActionPerformed
+       //crear objeto
         String cadena;
         cadena = jtextIngresa.getText();
+        
+        if (cadena.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null,"Ingrese valores");
+            return;
+        }
+        
         jtextIngresa.setText(null);
         pila1.apilar(cadena);
-    }//GEN-LAST:event_btnApilarActionPerformed
-
-    private void btnDesApilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesApilarActionPerformed
-        pila1.desapilar();
-    }//GEN-LAST:event_btnDesApilarActionPerformed
-
-    private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
+        
         String listaCadena = pila1.mostrarPila();
         String[] listaArr = listaCadena.split("-");
         
@@ -133,13 +185,54 @@ public class PanelLab4Pilas extends javax.swing.JPanel {
                 return strings[i];
             }
         });
-    }//GEN-LAST:event_btnVerActionPerformed
+    }//GEN-LAST:event_btn_ApilarActionPerformed
+
+    private void btn_DesApliarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DesApliarMouseEntered
+        btn_DesApliar.setBackground(new Color(59, 89, 152));
+    }//GEN-LAST:event_btn_DesApliarMouseEntered
+
+    private void btn_DesApliarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DesApliarMouseExited
+        btn_DesApliar.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btn_DesApliarMouseExited
+
+    private void btn_DesApliarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DesApliarMousePressed
+        btn_DesApliar.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btn_DesApliarMousePressed
+
+    private void btn_DesApliarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DesApliarMouseReleased
+        btn_DesApliar.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btn_DesApliarMouseReleased
+
+    private void btn_DesApliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DesApliarActionPerformed
+
+        try{
+            
+            pila1.desapilar();
+            String listaCadena = pila1.mostrarPila();
+            String[] listaArr = listaCadena.split("-");
+
+            textPila.setModel(new javax.swing.AbstractListModel<String>() {
+                String[] strings = listaArr;
+
+                public int getSize() {
+                    return strings.length;
+                }
+
+                public String getElementAt(int i) {
+                    return strings[i];
+                }
+            });
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"La pila está vacía, Apile valores");
+        }
+    }//GEN-LAST:event_btn_DesApliarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnApilar;
-    private javax.swing.JButton btnDesApilar;
-    private javax.swing.JButton btnVer;
+    private javax.swing.JButton btn_Apilar;
+    private javax.swing.JButton btn_DesApliar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jtextIngresa;

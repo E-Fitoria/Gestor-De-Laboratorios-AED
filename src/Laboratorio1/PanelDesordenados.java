@@ -1,8 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package Laboratorio1;
+
+import static Laboratorio1.AlumnosDesordenados.EliminarAlumnos;
+import static Laboratorio1.AlumnosDesordenados.InsertarAlumnos;
+import static Laboratorio1.AlumnosDesordenados.ListarAlumno;
+import static Laboratorio1.AlumnosDesordenados.ModificarAlumno;
+import static Laboratorio1.EmpresaDesordenados.EliminarCliente;
+import static Laboratorio1.EmpresaDesordenados.InsertarClientes;
+import static Laboratorio1.EmpresaDesordenados.ListarCliente;
+import static Laboratorio1.EmpresaDesordenados.ModificarCliente;
+import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,8 +23,36 @@ public class PanelDesordenados extends javax.swing.JPanel {
     /**
      * Creates new form PanelDesordenados
      */
+    
+    int cant_alumnos = 0, n1 = -1;
+    String nombres_alumnos[];
+    Double promedios_alumnos[];
+    Integer semestres_alumnos[];
+    
+    int cant_clientes = 0, n2 = -1;
+    String nombres_clientes[];
+    Integer telefonos_clientes[];
+    Double saldos_clientes[];
+    Integer morosos_clientes[];
+    
     public PanelDesordenados() {
         initComponents();
+        
+        btn.setVisible(false);
+        jTable1.setVisible(false);
+        jRadioButton_RegistrarA.setEnabled(false);
+        jRadioButton_ModificarA.setEnabled(false);
+        jRadioButton_ListarInfoA.setEnabled(false);
+        jRadioButton_InfoA.setEnabled(false);
+        jRadioButton_EliminarA.setEnabled(false);
+        
+        btn2.setVisible(false);
+        jTable2.setVisible(false);
+        jRadioButton_RegistrarC.setEnabled(false);
+        jRadioButton_ModificarC.setEnabled(false);
+        jRadioButton_ListarInfoC.setEnabled(false);
+        jRadioButton_InfoC.setEnabled(false);
+        jRadioButton_EliminarC.setEnabled(false);
     }
 
     /**
@@ -26,19 +64,838 @@ public class PanelDesordenados extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jRadioButton_ListarInfoA = new javax.swing.JRadioButton();
+        jRadioButton_EliminarA = new javax.swing.JRadioButton();
+        jRadioButton_ModificarA = new javax.swing.JRadioButton();
+        jRadioButton_InfoA = new javax.swing.JRadioButton();
+        jRadioButton_RegistrarA = new javax.swing.JRadioButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField_CantAlumnos = new javax.swing.JTextField();
+        btnAgregar_Alumnos = new javax.swing.JButton();
+        btn = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jRadioButton_ListarInfoC = new javax.swing.JRadioButton();
+        jRadioButton_EliminarC = new javax.swing.JRadioButton();
+        jRadioButton_ModificarC = new javax.swing.JRadioButton();
+        jRadioButton_InfoC = new javax.swing.JRadioButton();
+        jRadioButton_RegistrarC = new javax.swing.JRadioButton();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField_CantClientes = new javax.swing.JTextField();
+        btnAgregar_Clientes = new javax.swing.JButton();
+        btn2 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+
+        jTabbedPane1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTabbedPane1.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+
+        buttonGroup1.add(jRadioButton_ListarInfoA);
+        jRadioButton_ListarInfoA.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jRadioButton_ListarInfoA.setText("Listar info");
+        jRadioButton_ListarInfoA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_ListarInfoAActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton_EliminarA);
+        jRadioButton_EliminarA.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jRadioButton_EliminarA.setText("Eliminar");
+        jRadioButton_EliminarA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_EliminarAActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton_ModificarA);
+        jRadioButton_ModificarA.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jRadioButton_ModificarA.setText("<html>Modificar semestre<br>y promedio<html>");
+        jRadioButton_ModificarA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_ModificarAActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton_InfoA);
+        jRadioButton_InfoA.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jRadioButton_InfoA.setText("<html>Informacion de<br>alumno<html>");
+        jRadioButton_InfoA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_InfoAActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton_RegistrarA);
+        jRadioButton_RegistrarA.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jRadioButton_RegistrarA.setText("Registrar");
+        jRadioButton_RegistrarA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_RegistrarAActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jLabel2.setText("Cantidad de alumnos: ");
+
+        btnAgregar_Alumnos.setBackground(new java.awt.Color(226, 226, 226));
+        btnAgregar_Alumnos.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+        btnAgregar_Alumnos.setText("Agregar");
+        btnAgregar_Alumnos.setBorderPainted(false);
+        btnAgregar_Alumnos.setContentAreaFilled(false);
+        btnAgregar_Alumnos.setFocusable(false);
+        btnAgregar_Alumnos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnAgregar_Alumnos.setOpaque(true);
+        btnAgregar_Alumnos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregar_Alumnos_DepartamentosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregar_Alumnos_DepartamentosMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAgregar_Alumnos_DepartamentosMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnAgregar_Alumnos_DepartamentosMouseReleased(evt);
+            }
+        });
+        btnAgregar_Alumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregar_Alumnos_DepartamentosActionPerformed(evt);
+            }
+        });
+
+        btn.setBackground(new java.awt.Color(226, 226, 226));
+        btn.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        btn.setText("Rentar");
+        btn.setBorderPainted(false);
+        btn.setContentAreaFilled(false);
+        btn.setFocusable(false);
+        btn.setOpaque(true);
+        btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnMouseReleased(evt);
+            }
+        });
+        btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActionPerformed(evt);
+            }
+        });
+
+        jTable1.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "", "", ""
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setEnabled(false);
+        jScrollPane3.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField_CantAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAgregar_Alumnos))
+                            .addComponent(btn))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jRadioButton_RegistrarA)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton_EliminarA)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton_ModificarA, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton_InfoA, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton_ListarInfoA)
+                        .addGap(12, 12, 12)))
+                .addContainerGap())
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField_CantAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregar_Alumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jRadioButton_EliminarA)
+                        .addComponent(jRadioButton_ModificarA)
+                        .addComponent(jRadioButton_InfoA)
+                        .addComponent(jRadioButton_ListarInfoA))
+                    .addComponent(jRadioButton_RegistrarA))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 621, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 338, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 62, Short.MAX_VALUE)))
+        );
+
+        jTabbedPane1.addTab("Alumnos", new javax.swing.ImageIcon(getClass().getResource("/images/icons8-estudiantes-2.png")), jPanel1); // NOI18N
+
+        buttonGroup1.add(jRadioButton_ListarInfoC);
+        jRadioButton_ListarInfoC.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jRadioButton_ListarInfoC.setText("Listar info");
+        jRadioButton_ListarInfoC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_ListarInfoCActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton_EliminarC);
+        jRadioButton_EliminarC.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jRadioButton_EliminarC.setText("Eliminar");
+        jRadioButton_EliminarC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_EliminarCActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton_ModificarC);
+        jRadioButton_ModificarC.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jRadioButton_ModificarC.setText("<html>Modificar estado<br>de deuda<html>");
+        jRadioButton_ModificarC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_ModificarCActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton_InfoC);
+        jRadioButton_InfoC.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jRadioButton_InfoC.setText("<html>Informacion de<br>alumno<html>");
+        jRadioButton_InfoC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_InfoCActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton_RegistrarC);
+        jRadioButton_RegistrarC.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jRadioButton_RegistrarC.setText("Registrar");
+        jRadioButton_RegistrarC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_RegistrarCActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jLabel3.setText("Cantidad de clientes: ");
+
+        btnAgregar_Clientes.setBackground(new java.awt.Color(226, 226, 226));
+        btnAgregar_Clientes.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+        btnAgregar_Clientes.setText("Agregar");
+        btnAgregar_Clientes.setBorderPainted(false);
+        btnAgregar_Clientes.setContentAreaFilled(false);
+        btnAgregar_Clientes.setFocusable(false);
+        btnAgregar_Clientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnAgregar_Clientes.setOpaque(true);
+        btnAgregar_Clientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregar_Clientes_DepartamentosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregar_Clientes_DepartamentosMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAgregar_Clientes_DepartamentosMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnAgregar_Clientes_DepartamentosMouseReleased(evt);
+            }
+        });
+        btnAgregar_Clientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregar_Clientes_DepartamentosActionPerformed(evt);
+            }
+        });
+
+        btn2.setBackground(new java.awt.Color(226, 226, 226));
+        btn2.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        btn2.setText("Rentar");
+        btn2.setBorderPainted(false);
+        btn2.setContentAreaFilled(false);
+        btn2.setFocusable(false);
+        btn2.setOpaque(true);
+        btn2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn2MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn2MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn2MouseReleased(evt);
+            }
+        });
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
+
+        jTable2.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "", "", ""
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable2.setEnabled(false);
+        jScrollPane4.setViewportView(jTable2);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField_CantClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAgregar_Clientes))
+                            .addComponent(btn2))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jRadioButton_RegistrarC)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton_EliminarC)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton_ModificarC, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton_InfoC, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton_ListarInfoC)
+                        .addGap(12, 12, 12)))
+                .addContainerGap())
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField_CantClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregar_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jRadioButton_EliminarC)
+                        .addComponent(jRadioButton_ModificarC)
+                        .addComponent(jRadioButton_InfoC)
+                        .addComponent(jRadioButton_ListarInfoC))
+                    .addComponent(jRadioButton_RegistrarC))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn2)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 621, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 338, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 62, Short.MAX_VALUE)))
+        );
+
+        jTabbedPane1.addTab("Clientes", new javax.swing.ImageIcon(getClass().getResource("/images/icons8-clientes.png")), jPanel2); // NOI18N
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 621, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 338, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Empleados", new javax.swing.ImageIcon(getClass().getResource("/images/icons8-sala-de-reuniones.png")), jPanel3); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jRadioButton_ListarInfoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_ListarInfoAActionPerformed
+        btn.setText("Listar Informacion");
+        jTable1.setVisible(false);
+    }//GEN-LAST:event_jRadioButton_ListarInfoAActionPerformed
+
+    private void jRadioButton_EliminarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_EliminarAActionPerformed
+
+        btn.setText("Eliminar");
+    }//GEN-LAST:event_jRadioButton_EliminarAActionPerformed
+
+    private void jRadioButton_ModificarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_ModificarAActionPerformed
+        btn.setText("Modificar Info");
+        jTable1.setVisible(false);
+    }//GEN-LAST:event_jRadioButton_ModificarAActionPerformed
+
+    private void jRadioButton_InfoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_InfoAActionPerformed
+        btn.setText("Informacion de alumno");
+        jTable1.setVisible(false);
+    }//GEN-LAST:event_jRadioButton_InfoAActionPerformed
+
+    private void jRadioButton_RegistrarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_RegistrarAActionPerformed
+        btn.setVisible(true);
+        btn.setText("Registrar");
+        jTable1.setVisible(false);
+    }//GEN-LAST:event_jRadioButton_RegistrarAActionPerformed
+
+    private void btnAgregar_Alumnos_DepartamentosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregar_Alumnos_DepartamentosMouseEntered
+        btnAgregar_Alumnos.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btnAgregar_Alumnos_DepartamentosMouseEntered
+
+    private void btnAgregar_Alumnos_DepartamentosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregar_Alumnos_DepartamentosMouseExited
+        btnAgregar_Alumnos.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnAgregar_Alumnos_DepartamentosMouseExited
+
+    private void btnAgregar_Alumnos_DepartamentosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregar_Alumnos_DepartamentosMousePressed
+        btnAgregar_Alumnos.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btnAgregar_Alumnos_DepartamentosMousePressed
+
+    private void btnAgregar_Alumnos_DepartamentosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregar_Alumnos_DepartamentosMouseReleased
+        btnAgregar_Alumnos.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnAgregar_Alumnos_DepartamentosMouseReleased
+
+    private void btnAgregar_Alumnos_DepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregar_Alumnos_DepartamentosActionPerformed
+
+        try
+        {
+            cant_alumnos = Integer.parseInt(jTextField_CantAlumnos.getText());
+            nombres_alumnos= new String[cant_alumnos];
+            promedios_alumnos = new Double[cant_alumnos];
+            semestres_alumnos = new Integer[cant_alumnos];
+            jRadioButton_RegistrarA.setEnabled(true);
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"Ingrese la cantidad de Alumnos");
+        }
+    }//GEN-LAST:event_btnAgregar_Alumnos_DepartamentosActionPerformed
+
+    private void btnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMouseEntered
+        btn.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btnMouseEntered
+
+    private void btnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMouseExited
+        btn.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnMouseExited
+
+    private void btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMousePressed
+        btn.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btnMousePressed
+
+    private void btnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMouseReleased
+        btn.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnMouseReleased
+
+    private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
+        /*
+        Al ocurrir el click en el boton usamos estructuras de selcci[on, si el radio boton rentar esta seleccionado
+        entonces ejecutamos la funcion insertar, en caso de que el arreglo todav[ia est[e vacio se mantienen desactivados
+        los dem[as radio boton est[an desactivados
+        */
+        if (jRadioButton_RegistrarA.isSelected() == true)
+        {
+            n1 = InsertarAlumnos(nombres_alumnos, semestres_alumnos,promedios_alumnos,n1,cant_alumnos);
+
+            if (n1 > -1)
+            {
+                jRadioButton_ModificarA.setEnabled(true);
+                jRadioButton_ListarInfoA.setEnabled(true);
+                jRadioButton_InfoA.setEnabled(true);
+                jRadioButton_EliminarA.setEnabled(true);
+            }
+        }
+        else if (jRadioButton_EliminarA.isSelected() == true)
+        {
+            n1 = EliminarAlumnos(nombres_alumnos, semestres_alumnos, promedios_alumnos, n1);
+
+            if (n1 < 0)
+            {
+                jRadioButton_RegistrarA.setEnabled(false);
+                jRadioButton_ModificarA.setEnabled(false);
+                jRadioButton_InfoA.setEnabled(false);
+                jRadioButton_ListarInfoA.setEnabled(false);
+            }
+            
+            jTable1.setVisible(false);
+        }
+        else if (jRadioButton_ModificarA.isSelected() == true)
+        {
+            ModificarAlumno(nombres_alumnos,semestres_alumnos, promedios_alumnos, n1);
+        }
+        else if (jRadioButton_InfoA.isSelected() == true)
+        {
+            ListarAlumno(nombres_alumnos,semestres_alumnos, promedios_alumnos, n1);
+
+        }
+        else if (jRadioButton_ListarInfoA.isSelected() == true)
+        {
+            jTable1.setVisible(true);
+
+            DefaultTableModel modelo =  new DefaultTableModel();
+            ArrayList<Object[]> lista = new ArrayList<>();
+
+            modelo.addColumn("Nombre"); //al modelo por default le agregamos una columnas llamada valores
+            modelo.addColumn("Semestres");
+            modelo.addColumn("Promedio");
+
+            if (n1 > -1)
+            {
+                /*
+                Procedemos a llenar la lista con los datos actualizados, usamos un Object para llenar la lista
+                */
+                for (int i = 0; i <= n1; i++)
+                {
+                    Object[] fila = new Object[]{nombres_alumnos[i],semestres_alumnos[i], promedios_alumnos[i]};
+
+                    if (nombres_alumnos[i] != null && semestres_alumnos[i] != null && promedios_alumnos[i] != null)
+                    {
+                        lista.add(fila);
+                    }
+                }
+
+                for (Object[] informacion : lista)
+                {
+                    modelo.addRow(informacion);
+                }
+
+                jTable1.setModel(modelo);//mostramos la tabla con este modelo que creamos
+            }
+            else
+            {
+                for (int i = 1; i <= lista.size(); i++)
+                {
+                    modelo.removeRow(i);
+                }
+
+                jTable1.setModel(modelo);
+                lista.removeAll(lista);
+                JOptionPane.showMessageDialog(null,"Array vacío");
+            }
+
+        }
+    }//GEN-LAST:event_btnActionPerformed
+
+    /*
+    **********Funciones panel Clientes************
+    */
+    private void jRadioButton_ListarInfoCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_ListarInfoCActionPerformed
+        btn2.setText("Listar Informacion");
+        jTable2.setVisible(false);
+    }//GEN-LAST:event_jRadioButton_ListarInfoCActionPerformed
+
+    private void jRadioButton_EliminarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_EliminarCActionPerformed
+         btn2.setText("Eliminar");
+    }//GEN-LAST:event_jRadioButton_EliminarCActionPerformed
+
+    private void jRadioButton_ModificarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_ModificarCActionPerformed
+        btn2.setText("Modificar Info");
+        jTable2.setVisible(false);
+    }//GEN-LAST:event_jRadioButton_ModificarCActionPerformed
+
+    private void jRadioButton_InfoCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_InfoCActionPerformed
+        btn2.setText("Informacion de cliente");
+        jTable2.setVisible(false);
+    }//GEN-LAST:event_jRadioButton_InfoCActionPerformed
+
+    private void jRadioButton_RegistrarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_RegistrarCActionPerformed
+        btn2.setVisible(true);
+        btn2.setText("Registrar");
+        jTable2.setVisible(false);
+    }//GEN-LAST:event_jRadioButton_RegistrarCActionPerformed
+
+    private void btnAgregar_Clientes_DepartamentosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregar_Clientes_DepartamentosMouseEntered
+        btnAgregar_Clientes.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btnAgregar_Clientes_DepartamentosMouseEntered
+
+    private void btnAgregar_Clientes_DepartamentosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregar_Clientes_DepartamentosMouseExited
+        btnAgregar_Clientes.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnAgregar_Clientes_DepartamentosMouseExited
+
+    private void btnAgregar_Clientes_DepartamentosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregar_Clientes_DepartamentosMousePressed
+        btnAgregar_Clientes.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btnAgregar_Clientes_DepartamentosMousePressed
+
+    private void btnAgregar_Clientes_DepartamentosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregar_Clientes_DepartamentosMouseReleased
+        btnAgregar_Clientes.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnAgregar_Clientes_DepartamentosMouseReleased
+
+    private void btnAgregar_Clientes_DepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregar_Clientes_DepartamentosActionPerformed
+       
+        try
+        {
+            cant_clientes = Integer.parseInt(jTextField_CantClientes.getText());
+            nombres_clientes = new String[cant_clientes];
+            telefonos_clientes = new Integer[cant_clientes];
+            saldos_clientes = new Double[cant_clientes];
+            morosos_clientes = new Integer[cant_clientes];
+            
+            jRadioButton_RegistrarC.setEnabled(true);
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"Ingrese la cantidad de Clientes");
+        }
+    }//GEN-LAST:event_btnAgregar_Clientes_DepartamentosActionPerformed
+
+    private void btn2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn2MouseEntered
+        btn2.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btn2MouseEntered
+
+    private void btn2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn2MouseExited
+        btn2.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btn2MouseExited
+
+    private void btn2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn2MousePressed
+        btn2.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btn2MousePressed
+
+    private void btn2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn2MouseReleased
+        btn2.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btn2MouseReleased
+
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        
+        if (jRadioButton_RegistrarC.isSelected() == true)
+        {
+            n2 = InsertarClientes(nombres_clientes, telefonos_clientes,saldos_clientes,morosos_clientes,n2,cant_clientes);
+
+            if (n2 > -1)
+            {
+                jRadioButton_ModificarC.setEnabled(true);
+                jRadioButton_ListarInfoC.setEnabled(true);
+                jRadioButton_InfoC.setEnabled(true);
+                jRadioButton_EliminarC.setEnabled(true);
+            }
+        }
+        else if (jRadioButton_EliminarC.isSelected() == true)
+        {
+            n2 = EliminarCliente(nombres_clientes, telefonos_clientes,saldos_clientes,morosos_clientes,n2,cant_clientes);
+
+            if (n2 < 0)
+            {
+                jRadioButton_EliminarC.setEnabled(false);
+                jRadioButton_ModificarC.setEnabled(false);
+                jRadioButton_InfoC.setEnabled(false);
+                jRadioButton_ListarInfoC.setEnabled(false);  
+            }
+            
+            jTable2.setVisible(false);
+        }
+        else if (jRadioButton_ModificarC.isSelected() == true)
+        {
+            ModificarCliente(nombres_clientes, telefonos_clientes,saldos_clientes,morosos_clientes,n2,cant_clientes);
+        }
+        else if (jRadioButton_InfoC.isSelected() == true)
+        {
+            ListarCliente(nombres_clientes, telefonos_clientes,saldos_clientes,morosos_clientes,n2,cant_clientes);
+
+        }
+        else if (jRadioButton_ListarInfoC.isSelected() == true)
+        {
+            jTable2.setVisible(true);
+
+            DefaultTableModel modelo =  new DefaultTableModel();
+            ArrayList<Object[]> lista = new ArrayList<>();
+
+            modelo.addColumn("Nombre"); //al modelo por default le agregamos una columnas llamada valores
+            modelo.addColumn("Telefono");
+            modelo.addColumn("Saldo");
+            modelo.addColumn("Debe");
+            
+            Object[] fila = new Object[]{null,null,null,null};
+            
+            if (n2 > -1)
+            {
+                /*
+                Procedemos a llenar la lista con los datos actualizados, usamos un Object para llenar la lista
+                */
+                for (int i = 0; i <= n2; i++)
+                {
+                    
+                   if (morosos_clientes[i] == 0)
+                   {
+                      fila = new Object[]{nombres_clientes[i],telefonos_clientes[i], saldos_clientes[i],
+                                                    "Debe"};
+                   }
+                   else if(morosos_clientes[i] == 1)
+                   {
+                      fila = new Object[]{nombres_clientes[i],telefonos_clientes[i], saldos_clientes[i],
+                                                    "No Debe"};
+                   }
+
+                   lista.add(fila);
+                }
+
+                for (Object[] informacion : lista)
+                {
+                    modelo.addRow(informacion);
+                }
+
+                jTable2.setModel(modelo);//mostramos la tabla con este modelo que creamos
+            }
+            else
+            {
+                for (int i = 1; i <= lista.size(); i++)
+                {
+                    modelo.removeRow(i);
+                }
+
+                jTable2.setModel(modelo);
+                lista.removeAll(lista);
+                JOptionPane.showMessageDialog(null,"Array vacío");
+            }
+
+        }
+    }//GEN-LAST:event_btn2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn;
+    private javax.swing.JButton btn2;
+    private javax.swing.JButton btnAgregar_Alumnos;
+    private javax.swing.JButton btnAgregar_Clientes;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JRadioButton jRadioButton_EliminarA;
+    private javax.swing.JRadioButton jRadioButton_EliminarC;
+    private javax.swing.JRadioButton jRadioButton_InfoA;
+    private javax.swing.JRadioButton jRadioButton_InfoC;
+    private javax.swing.JRadioButton jRadioButton_ListarInfoA;
+    private javax.swing.JRadioButton jRadioButton_ListarInfoC;
+    private javax.swing.JRadioButton jRadioButton_ModificarA;
+    private javax.swing.JRadioButton jRadioButton_ModificarC;
+    private javax.swing.JRadioButton jRadioButton_RegistrarA;
+    private javax.swing.JRadioButton jRadioButton_RegistrarC;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTextField jTextField_CantAlumnos;
+    private javax.swing.JTextField jTextField_CantClientes;
     // End of variables declaration//GEN-END:variables
 }
