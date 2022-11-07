@@ -46,7 +46,6 @@ public class PanelLab2 extends javax.swing.JPanel {
 
         jComboBox1.setFont(new java.awt.Font("Consolas", 1, 13)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ordenamiento", "Búsqueda" }));
-        jComboBox1.setSelectedIndex(-1);
         jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jComboBox1.setFocusable(false);
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {

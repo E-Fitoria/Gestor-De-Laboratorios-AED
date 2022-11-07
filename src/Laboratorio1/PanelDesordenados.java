@@ -5,6 +5,10 @@ import static Laboratorio1.AlumnosDesordenados.EliminarAlumnos;
 import static Laboratorio1.AlumnosDesordenados.InsertarAlumnos;
 import static Laboratorio1.AlumnosDesordenados.ListarAlumno;
 import static Laboratorio1.AlumnosDesordenados.ModificarAlumno;
+import static Laboratorio1.EmpleadosDesordenados.EliminarEmpleados;
+import static Laboratorio1.EmpleadosDesordenados.InsertarEmpleados;
+import static Laboratorio1.EmpleadosDesordenados.ListarEmpleado;
+import static Laboratorio1.EmpleadosDesordenados.ModificarEmpleados;
 import static Laboratorio1.EmpresaDesordenados.EliminarCliente;
 import static Laboratorio1.EmpresaDesordenados.InsertarClientes;
 import static Laboratorio1.EmpresaDesordenados.ListarCliente;
@@ -35,6 +39,12 @@ public class PanelDesordenados extends javax.swing.JPanel {
     Double saldos_clientes[];
     Integer morosos_clientes[];
     
+    int cant_empleados = 0, n3 = -1;
+    String nombres_empleados[];
+    Integer edades_empleados[];
+    String sexos_empleados[];
+    
+    
     public PanelDesordenados() {
         initComponents();
         
@@ -53,6 +63,14 @@ public class PanelDesordenados extends javax.swing.JPanel {
         jRadioButton_ListarInfoC.setEnabled(false);
         jRadioButton_InfoC.setEnabled(false);
         jRadioButton_EliminarC.setEnabled(false);
+        
+        btn3.setVisible(false);
+        jTable3.setVisible(false);
+        jRadioButton_RegistrarE.setEnabled(false);
+        jRadioButton_ActualizarE.setEnabled(false);
+        jRadioButton_ListarInfoMasculinos.setEnabled(false);
+        jRadioButton_InfoE.setEnabled(false);
+        jRadioButton_EliminarE.setEnabled(false);
     }
 
     /**
@@ -95,6 +113,19 @@ public class PanelDesordenados extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jRadioButton_ListarInfoMasculinos = new javax.swing.JRadioButton();
+        jRadioButton_EliminarE = new javax.swing.JRadioButton();
+        jRadioButton_ActualizarE = new javax.swing.JRadioButton();
+        jRadioButton_InfoE = new javax.swing.JRadioButton();
+        jRadioButton_RegistrarE = new javax.swing.JRadioButton();
+        jSeparator4 = new javax.swing.JSeparator();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField_CantEmpleados = new javax.swing.JTextField();
+        btnAgregar_Empleados = new javax.swing.JButton();
+        btn3 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
 
         jTabbedPane1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTabbedPane1.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
@@ -503,15 +534,215 @@ public class PanelDesordenados extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Clientes", new javax.swing.ImageIcon(getClass().getResource("/images/icons8-clientes.png")), jPanel2); // NOI18N
 
+        buttonGroup1.add(jRadioButton_ListarInfoMasculinos);
+        jRadioButton_ListarInfoMasculinos.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jRadioButton_ListarInfoMasculinos.setText("<html>Listar Empleados<br>Masculinos<html>");
+        jRadioButton_ListarInfoMasculinos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_ListarInfoMasculinosActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton_EliminarE);
+        jRadioButton_EliminarE.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jRadioButton_EliminarE.setText("Eliminar");
+        jRadioButton_EliminarE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_EliminarEActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton_ActualizarE);
+        jRadioButton_ActualizarE.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jRadioButton_ActualizarE.setText("Actualizar edad");
+        jRadioButton_ActualizarE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_ActualizarEActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton_InfoE);
+        jRadioButton_InfoE.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jRadioButton_InfoE.setText("<html>Informacion de<br>empleado<html>");
+        jRadioButton_InfoE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_InfoEActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton_RegistrarE);
+        jRadioButton_RegistrarE.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jRadioButton_RegistrarE.setText("Registrar");
+        jRadioButton_RegistrarE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_RegistrarEActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        jLabel4.setText("Cantidad de empleados: ");
+
+        jTextField_CantEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_CantEmpleadosActionPerformed(evt);
+            }
+        });
+
+        btnAgregar_Empleados.setBackground(new java.awt.Color(226, 226, 226));
+        btnAgregar_Empleados.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+        btnAgregar_Empleados.setText("Agregar");
+        btnAgregar_Empleados.setBorderPainted(false);
+        btnAgregar_Empleados.setContentAreaFilled(false);
+        btnAgregar_Empleados.setFocusable(false);
+        btnAgregar_Empleados.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnAgregar_Empleados.setOpaque(true);
+        btnAgregar_Empleados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregar_Empleados_DepartamentosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregar_Empleados_DepartamentosMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAgregar_Empleados_DepartamentosMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnAgregar_Empleados_DepartamentosMouseReleased(evt);
+            }
+        });
+        btnAgregar_Empleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregar_Empleados_DepartamentosActionPerformed(evt);
+            }
+        });
+
+        btn3.setBackground(new java.awt.Color(226, 226, 226));
+        btn3.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        btn3.setText("Rentar");
+        btn3.setBorderPainted(false);
+        btn3.setContentAreaFilled(false);
+        btn3.setFocusable(false);
+        btn3.setOpaque(true);
+        btn3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn3MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn3MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btn3MouseReleased(evt);
+            }
+        });
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
+
+        jTable3.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "", "", ""
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable3.setEnabled(false);
+        jScrollPane5.setViewportView(jTable3);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField_CantEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnAgregar_Empleados))
+                                    .addComponent(btn3)
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addComponent(jRadioButton_RegistrarE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jRadioButton_EliminarE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jRadioButton_ActualizarE, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jRadioButton_InfoE, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jRadioButton_ListarInfoMasculinos, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField_CantEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAgregar_Empleados, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel4)))
+                .addGap(5, 5, 5)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jRadioButton_EliminarE)
+                        .addComponent(jRadioButton_ActualizarE)
+                        .addComponent(jRadioButton_InfoE)
+                        .addComponent(jRadioButton_ListarInfoMasculinos))
+                    .addComponent(jRadioButton_RegistrarE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn3)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 621, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 338, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 62, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Empleados", new javax.swing.ImageIcon(getClass().getResource("/images/icons8-sala-de-reuniones.png")), jPanel3); // NOI18N
@@ -579,6 +810,7 @@ public class PanelDesordenados extends javax.swing.JPanel {
             promedios_alumnos = new Double[cant_alumnos];
             semestres_alumnos = new Integer[cant_alumnos];
             jRadioButton_RegistrarA.setEnabled(true);
+            jTextField_CantAlumnos.setEnabled(false);
         }
         catch(Exception e)
         {
@@ -746,6 +978,7 @@ public class PanelDesordenados extends javax.swing.JPanel {
             morosos_clientes = new Integer[cant_clientes];
             
             jRadioButton_RegistrarC.setEnabled(true);
+            jTextField_CantClientes.setEnabled(false);
         }
         catch(Exception e)
         {
@@ -864,38 +1097,221 @@ public class PanelDesordenados extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btn2ActionPerformed
 
+    /*******************Funciones Panel Empleados****************************/
+    
+    private void jRadioButton_ListarInfoMasculinosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_ListarInfoMasculinosActionPerformed
+        btn3.setText("Listar Masculinos");
+        jTable3.setVisible(false);
+    }//GEN-LAST:event_jRadioButton_ListarInfoMasculinosActionPerformed
+
+    private void jRadioButton_EliminarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_EliminarEActionPerformed
+        btn3.setText("Eliminar");
+    }//GEN-LAST:event_jRadioButton_EliminarEActionPerformed
+
+    private void jRadioButton_ActualizarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_ActualizarEActionPerformed
+        btn3.setText("Modificar Edad");
+        jTable3.setVisible(false);
+    }//GEN-LAST:event_jRadioButton_ActualizarEActionPerformed
+
+    private void jRadioButton_InfoEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_InfoEActionPerformed
+        btn3.setText("Informacion de empleado");
+        jTable3.setVisible(false);
+    }//GEN-LAST:event_jRadioButton_InfoEActionPerformed
+
+    private void jRadioButton_RegistrarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_RegistrarEActionPerformed
+        btn3.setVisible(true);
+        btn3.setText("Registrar");
+        jTable3.setVisible(false);
+    }//GEN-LAST:event_jRadioButton_RegistrarEActionPerformed
+
+    private void btnAgregar_Empleados_DepartamentosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregar_Empleados_DepartamentosMouseEntered
+        btnAgregar_Empleados.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btnAgregar_Empleados_DepartamentosMouseEntered
+
+    private void btnAgregar_Empleados_DepartamentosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregar_Empleados_DepartamentosMouseExited
+        btnAgregar_Empleados.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnAgregar_Empleados_DepartamentosMouseExited
+
+    private void btnAgregar_Empleados_DepartamentosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregar_Empleados_DepartamentosMousePressed
+        btnAgregar_Empleados.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btnAgregar_Empleados_DepartamentosMousePressed
+
+    private void btnAgregar_Empleados_DepartamentosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregar_Empleados_DepartamentosMouseReleased
+        btnAgregar_Empleados.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btnAgregar_Empleados_DepartamentosMouseReleased
+
+    private void btnAgregar_Empleados_DepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregar_Empleados_DepartamentosActionPerformed
+        
+        try
+        {
+            cant_empleados = Integer.parseInt(jTextField_CantEmpleados.getText());
+            nombres_empleados = new String[cant_empleados];
+            edades_empleados = new Integer[cant_empleados];
+            sexos_empleados = new String[cant_empleados];
+            jRadioButton_RegistrarE.setEnabled(true);
+            
+            jTextField_CantEmpleados.setEnabled(false);
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"Ingrese la cantidad de Empleados");
+        }
+    }//GEN-LAST:event_btnAgregar_Empleados_DepartamentosActionPerformed
+
+    private void btn3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn3MouseEntered
+        btn3.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btn3MouseEntered
+
+    private void btn3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn3MouseExited
+        btn3.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btn3MouseExited
+
+    private void btn3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn3MousePressed
+        btn3.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btn3MousePressed
+
+    private void btn3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn3MouseReleased
+        btn3.setBackground(new Color(226,226,226));
+    }//GEN-LAST:event_btn3MouseReleased
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        
+        if (jRadioButton_RegistrarE.isSelected() == true)
+        {
+            n3 = InsertarEmpleados(nombres_empleados, edades_empleados, sexos_empleados,n3,cant_empleados);
+
+            if (n3 > -1)
+            {
+                jRadioButton_ActualizarE.setEnabled(true);
+                jRadioButton_InfoE.setEnabled(true);
+                jRadioButton_ListarInfoMasculinos.setEnabled(true);
+                jRadioButton_EliminarE.setEnabled(true);
+            }
+        }
+        else if (jRadioButton_EliminarE.isSelected() == true)
+        {
+            n3 = EliminarEmpleados(nombres_empleados, edades_empleados,sexos_empleados,n3,cant_empleados);
+
+            if (n3 < 0)
+            {
+                jRadioButton_EliminarE.setEnabled(false);
+                jRadioButton_ActualizarE.setEnabled(false);
+                jRadioButton_InfoE.setEnabled(false);
+                jRadioButton_ListarInfoMasculinos.setEnabled(false);  
+            }
+            
+            jTable3.setVisible(false);
+        }
+        else if (jRadioButton_ActualizarE.isSelected() == true)
+        {
+            ModificarEmpleados(nombres_empleados, edades_empleados,sexos_empleados,n3,cant_empleados);
+        }
+        else if (jRadioButton_InfoE.isSelected() == true)
+        {
+            ListarEmpleado(nombres_empleados, edades_empleados,sexos_empleados,n3,cant_empleados);
+
+        }
+        else if (jRadioButton_ListarInfoMasculinos.isSelected() == true)
+        {
+            jTable3.setVisible(true);
+
+            DefaultTableModel modelo =  new DefaultTableModel();
+            ArrayList<Object[]> lista = new ArrayList<>();
+
+            modelo.addColumn("Nombre"); //al modelo por default le agregamos una columnas llamada valores
+            modelo.addColumn("Edad");
+            modelo.addColumn("Sexo");
+            
+            Object[] fila = new Object[]{null,null,null};
+            
+            if (n3 > -1)
+            {
+                /*
+                Procedemos a llenar la lista con los datos actualizados, usamos un Object para llenar la lista
+                */
+                for (int i = 0; i <= n3; i++)
+                {
+                    
+                   if (sexos_empleados[i].equalsIgnoreCase("masculino") )
+                   {
+                      fila = new Object[]{nombres_empleados[i],edades_empleados[i], sexos_empleados[i]};
+                      lista.add(fila);
+                   }  
+                }
+
+                for (Object[] informacion : lista)
+                {
+                    modelo.addRow(informacion);
+                }
+
+                jTable3.setModel(modelo);//mostramos la tabla con este modelo que creamos
+            }
+            else
+            {
+                for (int i = 1; i <= lista.size(); i++)
+                {
+                    modelo.removeRow(i);
+                }
+
+                jTable3.setModel(modelo);
+                lista.removeAll(lista);
+                JOptionPane.showMessageDialog(null,"Array vacío");
+            }
+
+        }
+    
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    
+    private void jTextField_CantEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_CantEmpleadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_CantEmpleadosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn;
     private javax.swing.JButton btn2;
+    private javax.swing.JButton btn3;
     private javax.swing.JButton btnAgregar_Alumnos;
     private javax.swing.JButton btnAgregar_Clientes;
+    private javax.swing.JButton btnAgregar_Empleados;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JRadioButton jRadioButton_ActualizarE;
     private javax.swing.JRadioButton jRadioButton_EliminarA;
     private javax.swing.JRadioButton jRadioButton_EliminarC;
+    private javax.swing.JRadioButton jRadioButton_EliminarE;
     private javax.swing.JRadioButton jRadioButton_InfoA;
     private javax.swing.JRadioButton jRadioButton_InfoC;
+    private javax.swing.JRadioButton jRadioButton_InfoE;
     private javax.swing.JRadioButton jRadioButton_ListarInfoA;
     private javax.swing.JRadioButton jRadioButton_ListarInfoC;
+    private javax.swing.JRadioButton jRadioButton_ListarInfoMasculinos;
     private javax.swing.JRadioButton jRadioButton_ModificarA;
     private javax.swing.JRadioButton jRadioButton_ModificarC;
     private javax.swing.JRadioButton jRadioButton_RegistrarA;
     private javax.swing.JRadioButton jRadioButton_RegistrarC;
+    private javax.swing.JRadioButton jRadioButton_RegistrarE;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField_CantAlumnos;
     private javax.swing.JTextField jTextField_CantClientes;
+    private javax.swing.JTextField jTextField_CantEmpleados;
     // End of variables declaration//GEN-END:variables
 }

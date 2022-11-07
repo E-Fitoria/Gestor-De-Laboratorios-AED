@@ -716,6 +716,8 @@ public class PanelOrdenados extends javax.swing.JPanel {
             extensiones = new Integer[cantidad_departamentos];
             precios = new Integer[cantidad_departamentos];
             jRadioButton_Rentar1.setEnabled(true);
+            
+            jTextField_CantDepartamentos.setEnabled(false);
         }
         catch(Exception e)
         {
@@ -769,6 +771,11 @@ public class PanelOrdenados extends javax.swing.JPanel {
                jRadioButton_ListarInfo.setEnabled(false);
            }
            
+           if (n >= 1)
+           {
+               OrdenarPorExtension(ubicaciones,extensiones,precios);
+           }
+
            jTable.setVisible(false);
        }
        else if (jRadioButton_ActualizarPrecio.isSelected() == true)
@@ -784,7 +791,7 @@ public class PanelOrdenados extends javax.swing.JPanel {
        {          
            jTable.setVisible(true);
            
-           OrdenarPorExtension(ubicaciones,extensiones,precios);
+           //OrdenarPorExtension(ubicaciones,extensiones,precios);
            
            DefaultTableModel modelo =  new DefaultTableModel();
            ArrayList<Object[]> lista = new ArrayList<>(); 
@@ -903,7 +910,8 @@ public class PanelOrdenados extends javax.swing.JPanel {
             edades_empleados = new Integer[cantidad_empleados];
             antLaboral_empleados = new Integer[cantidad_empleados];
             jRadioButton_Contratar.setEnabled(true);
-          
+            
+            jTextField_CantEmpleados.setEnabled(false);
         }
         catch(Exception e)
         {
@@ -942,6 +950,12 @@ public class PanelOrdenados extends javax.swing.JPanel {
                jRadioButton_InfoEmpleado.setEnabled(true);
                jRadioButton_ListarInfoEmpleados.setEnabled(true);
            }
+           
+           if (n2 >= 1)
+           {
+               OrdenarPorNombre(nombres_empleados,direcciones_empleados,edades_empleados,
+                            sexo_empleados,antLaboral_empleados);
+           }
        }
        else if (jRadioButton_Despedir.isSelected() == true)
        {
@@ -973,8 +987,8 @@ public class PanelOrdenados extends javax.swing.JPanel {
        {          
            jTable1.setVisible(true);
            
-           OrdenarPorNombre(nombres_empleados,direcciones_empleados,edades_empleados,
-                            sexo_empleados,antLaboral_empleados);
+           //OrdenarPorNombre(nombres_empleados,direcciones_empleados,edades_empleados,
+             //               sexo_empleados,antLaboral_empleados);
            
            DefaultTableModel modelo =  new DefaultTableModel();
            ArrayList<Object[]> lista = new ArrayList<>(); 
@@ -1061,6 +1075,8 @@ public class PanelOrdenados extends javax.swing.JPanel {
             nombres_vendedores = new String[cantidad_vendedores];
             totales_ventas = new Integer[cantidad_vendedores];
             jRadioButton_ContratarV.setEnabled(true);
+            
+            jTextField_CantVendedores.setEnabled(false);
         }
         catch(Exception e)
         {
@@ -1095,6 +1111,7 @@ public class PanelOrdenados extends javax.swing.JPanel {
                jRadioButton_ActualizarV.setEnabled(true);
                jRadioButton_InfoVendedor.setEnabled(true);
            }
+           
        }
        else if (jRadioButton_ActualizarV.isSelected() == true)
        {

@@ -6,8 +6,10 @@ import Laboratorio5.PanelLab5Ejercicio2;
 import Laboratorio5.PanelLab5Ejercicio3;
 import Laboratorio5.PanelLab5Ejercicio4;
 import Laboratorio5.PanelLab5Ejercicio5;
+import TransferirDatos.ModeloDeTransferencia;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
@@ -139,7 +141,77 @@ public class PanelLab5 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-
+        
+        ModeloDeTransferencia asignacion = new ModeloDeTransferencia(); 
+        
+        String ejercicio = jComboBox1.getSelectedItem().toString();
+        
+        if (ejercicio.equals("Ejercicio 1"))
+        {
+            
+            asignacion.setAsignacion("""
+                                     Escribir un programa que llene una lista de estudiantes de segundo año que llevan 
+                                     matemática básica (pueden ser de diferentes carreras) y almacene los datos en un 
+                                     arreglo de registros utilizando un ArrayList, para lo cual deberá crear la clase 
+                                     Alumno la cual tendrá como variables de instancia los campos de los registros y 
+                                     crear la clase Listado en la cual se declara el objeto lista de tipo de la clase 
+                                     Alumno como ArrayList y tendrá los métodos Agregar (insertará al arrayList) e 
+                                     Imprimir (Imprimirá los registros del arrayList).
+                                     
+                                     La interfaz principal deberá tener un botón que permita insertar los registros, 
+                                     otro que permita imprimir los datos por carrera, otro botón que limpie los cuadros 
+                                     de textos y un botón salir.
+                                     """);
+        }
+        else if (ejercicio.equals("Ejercicio 2"))
+        {
+            asignacion.setAsignacion("""
+                                     Escriba un programa que, dada una lista que contiene números enteros, la divida en 
+                                     dos listas independientes. Una formada por los números positivos y otra formada por
+                                     los números negativos.
+                                     
+                                     Imprimir las listas. Ejm:
+                                     
+                                     Lista de números: 7 -8 -9 5 6 3 -2 -1 0
+                                     Lista de positivos: 7 5 6 3 0
+                                     Lista de negativos: -8 -9 -2 -1""");
+        }
+        else if (ejercicio.equals("Ejercicio 3"))
+        {
+            asignacion.setAsignacion("""
+                                     Una empresa necesita almacenar en un arrayList el nombre, numero de empleado y 
+                                     salario de un grupo de empleados y necesita calcular la nómina total.
+                                     Escribir una clase que contenga los campos del arrayList. Otra clase que tenga los 
+                                     métodos insertar,imprimir, calcular nomina total.
+                                     
+                                     La interfaz principal deberá tener un botón que permita insertar los registros, otro
+                                     que permita imprimir, otro botón que calcule e imprima la nómina total, otro botón 
+                                     que limpie los cuadros de textos y un botón salir.
+                                     """);
+        }
+        else if (ejercicio.equals("Ejercicio 4"))
+        {
+            asignacion.setAsignacion("""
+                                     Escribir un programa utilizando ArrayList que represente una pila. Una pila es una 
+                                     estructura LIFO (Ultimo en entrar, primero en salir), se inserta y se elimina por 
+                                     el final de manera gráfica.
+                                     """);
+        }
+        else if (ejercicio.equals("Ejercicio 5"))
+        {
+            asignacion.setAsignacion("""
+                                     Escribir un programa que cree una lista de números positivos y que de esta lista 
+                                     cree dos más, uno con los números menores de 10 y otra con los números mayores a 10.
+                                     
+                                     Ejemplo:
+                                     Números : 7 5 12 8 14 23 6 9 15
+                                     Mayores de 10 : 12 14 23 15
+                                     Menores a 10 : 7 5 8 6 9
+                                     """);
+        }
+        
+        PanelVerAsignacion panel = new PanelVerAsignacion(asignacion); 
+        CambiarPanel(panel); 
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void btnProbarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProbarMouseEntered
@@ -159,42 +231,49 @@ public class PanelLab5 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnProbarMouseReleased
 
     private void btnProbarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProbarActionPerformed
+        
+       try
+       {
+            String ejercicio = jComboBox1.getSelectedItem().toString();
 
-        String ejercicio = jComboBox1.getSelectedItem().toString();
+            switch(ejercicio)
+            {
+                case "Ejercicio 1":
 
-        switch(ejercicio)
-        {
-            case "Ejercicio 1":
+                PanelLab5Ejercicio1 panel = new PanelLab5Ejercicio1();
+                CambiarPanel(panel);
 
-            PanelLab5Ejercicio1 panel = new PanelLab5Ejercicio1();
-            CambiarPanel(panel);
+                break;
+                case "Ejercicio 2":
 
-            break;
-            case "Ejercicio 2":
+                PanelLab5Ejercicio2 panel2 = new PanelLab5Ejercicio2();
+                CambiarPanel(panel2);
 
-            PanelLab5Ejercicio2 panel2 = new PanelLab5Ejercicio2();
-            CambiarPanel(panel2);
+                break;
+                case "Ejercicio 3":
 
-            break;
-            case "Ejercicio 3":
+                PanelLab5Ejercicio3 panel3 = new PanelLab5Ejercicio3();
+                CambiarPanel(panel3);
 
-            PanelLab5Ejercicio3 panel3 = new PanelLab5Ejercicio3();
-            CambiarPanel(panel3);
+                break;
+                case "Ejercicio 4":
 
-            break;
-            case "Ejercicio 4":
+                PanelLab5Ejercicio4 panel4 = new PanelLab5Ejercicio4();
+                CambiarPanel(panel4);
 
-            PanelLab5Ejercicio4 panel4 = new PanelLab5Ejercicio4();
-            CambiarPanel(panel4);
+                break;
+                case "Ejercicio 5":
 
-            break;
-            case "Ejercicio 5":
+                PanelLab5Ejercicio5 panel5 = new PanelLab5Ejercicio5();
+                CambiarPanel(panel5);
 
-            PanelLab5Ejercicio5 panel5 = new PanelLab5Ejercicio5();
-            CambiarPanel(panel5);
-
-            break;
-        }
+                break;
+            }
+       }
+       catch (Exception e)
+       {
+           JOptionPane.showMessageDialog(null,"Seleccione un ejercicio");
+       }
 
     }//GEN-LAST:event_btnProbarActionPerformed
 

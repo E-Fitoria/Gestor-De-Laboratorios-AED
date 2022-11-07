@@ -9,8 +9,10 @@ import Laboratorio5.PanelLab5Ejercicio2;
 import Laboratorio5.PanelLab5Ejercicio3;
 import Laboratorio5.PanelLab5Ejercicio4;
 import Laboratorio5.PanelLab5Ejercicio5;
+import TransferirDatos.ModeloDeTransferencia;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
@@ -137,7 +139,45 @@ public class PanelLab4 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-
+        
+        ModeloDeTransferencia asignacion = new ModeloDeTransferencia(); 
+        
+        String ejercicio = jComboBox1.getSelectedItem().toString();
+        
+        if (ejercicio.equals("Ejercicio 1"))
+        {
+            
+            asignacion.setAsignacion("""
+                                     Escriba un programa en modo grafico (agregarlo al proyecto) que permita introducir
+                                     una expresión en notación infija y convertirla ya sea a notación prefija o a notación
+                                     postfija.""");
+        }
+        else if (ejercicio.equals("Ejercicio 2"))
+        {
+            asignacion.setAsignacion("""
+                                     Se necesita almacenar en una pila los nombres de los centros comerciales (en modo
+                                     gráfico). Escriba un programa que realice las siguientes operaciones en la pila:
+                                     
+                                     1. Insertar datos en la pila
+                                     2. Eliminar datos de la pila.
+                                     3. Imprimir los datos que tiene la pila""");
+        }
+        else if (ejercicio.equals("Ejercicio 3"))
+        {
+            asignacion.setAsignacion("""
+                                     Una empresa tiene 10 estaciones de trabajo. Se necesita almacenar en una cola
+                                     circular los trabajos de impresión en el orden en que vayan llegando (en modo
+                                     gráfico). Escriba un programa que realice las siguientes operaciones en la cola
+                                     circular:
+                                     
+                                     1. Insertar datos en la cola circular.
+                                     2. Eliminar datos de la cola circular.
+                                     3. Imprimir los datos que tiene la cola circular.
+                                     """);
+        }
+        
+        PanelVerAsignacion panel = new PanelVerAsignacion(asignacion); 
+        CambiarPanel(panel); 
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void btnProbarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProbarMouseEntered
@@ -158,29 +198,38 @@ public class PanelLab4 extends javax.swing.JPanel {
 
     private void btnProbarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProbarActionPerformed
 
-        String ejercicio = jComboBox1.getSelectedItem().toString();
-        
-        switch(ejercicio)
+        try 
         {
-            case "Ejercicio 1":
-              
-                PanelLab4Convertidor panel = new PanelLab4Convertidor();
-                CambiarPanel(panel);
-                
-                break;
-            case "Ejercicio 2":
-              
-                PanelLab4Pilas panel2 = new PanelLab4Pilas();
-                CambiarPanel(panel2);
-                
-                break;
-            case "Ejercicio 3":
-              
-                PanelLab4Colas panel3 = new PanelLab4Colas();
-                CambiarPanel(panel3);
-                
-                break;
+            String ejercicio = jComboBox1.getSelectedItem().toString();
+
+            switch(ejercicio)
+            {
+                case "Ejercicio 1":
+
+                    PanelLab4Convertidor panel = new PanelLab4Convertidor();
+                    CambiarPanel(panel);
+
+                    break;
+                case "Ejercicio 2":
+
+                    PanelLab4Pilas panel2 = new PanelLab4Pilas();
+                    CambiarPanel(panel2);
+
+                    break;
+                case "Ejercicio 3":
+
+                    PanelLab4Colas panel3 = new PanelLab4Colas();
+                    CambiarPanel(panel3);
+
+                    break;
+            }
+        
         }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"Seleccione un ejercicio");
+        }
+        
     }//GEN-LAST:event_btnProbarActionPerformed
 
     private void CambiarPanel(JPanel panel)

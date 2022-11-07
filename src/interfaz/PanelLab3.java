@@ -9,6 +9,7 @@ import Laboratorio3.PanelLab3Ejercicio4;
 import Laboratorio3.PanelLab3Ejercicio5;
 import Laboratorio3.PanelLab3Ejercicio6;
 import java.awt.*;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class PanelLab3 extends javax.swing.JPanel {
@@ -152,48 +153,55 @@ public class PanelLab3 extends javax.swing.JPanel {
 
     private void btnProbarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProbarActionPerformed
         
-        String ejercicio = jComboBox1.getSelectedItem().toString();
-        
-        switch(ejercicio)
-        {
-            case "Ejercicio 1":
-              
-                PanelLab3Ejercicio1 panel = new PanelLab3Ejercicio1();
-                CambiarPanel(panel);
-                
-                break;
-            case "Ejercicio 2":
-              
-                PanelLab3Ejercicio2 panel2 = new PanelLab3Ejercicio2();
-                CambiarPanel(panel2);
-                
-                break;
-            case "Ejercicio 3":
-              
-                PanelLab3Ejercicio3 panel3 = new PanelLab3Ejercicio3();
-                CambiarPanel(panel3);
-                
-                break;
-            case "Ejercicio 4":
-              
-                PanelLab3Ejercicio4 panel4 = new PanelLab3Ejercicio4();
-                CambiarPanel(panel4);
-                
-                break;
-            case "Ejercicio 5":
-              
-                PanelLab3Ejercicio5 panel5 = new PanelLab3Ejercicio5();
-                CambiarPanel(panel5);
-                
-                break;
-            case "Ejercicio 6":
-              
-                PanelLab3Ejercicio6 panel6 = new PanelLab3Ejercicio6();
-                CambiarPanel(panel6);
-                
-                break;
+        try
+        {  
+            String ejercicio = jComboBox1.getSelectedItem().toString();
+            
+            switch(ejercicio)
+            {
+                case "Ejercicio 1":
+
+                    PanelLab3Ejercicio1 panel = new PanelLab3Ejercicio1();
+                    CambiarPanel(panel);
+
+                    break;
+                case "Ejercicio 2":
+
+                    PanelLab3Ejercicio2 panel2 = new PanelLab3Ejercicio2();
+                    CambiarPanel(panel2);
+
+                    break;
+                case "Ejercicio 3":
+
+                    PanelLab3Ejercicio3 panel3 = new PanelLab3Ejercicio3();
+                    CambiarPanel(panel3);
+
+                    break;
+                case "Ejercicio 4":
+
+                    PanelLab3Ejercicio4 panel4 = new PanelLab3Ejercicio4();
+                    CambiarPanel(panel4);
+
+                    break;
+                case "Ejercicio 5":
+
+                    PanelLab3Ejercicio5 panel5 = new PanelLab3Ejercicio5();
+                    CambiarPanel(panel5);
+
+                    break;
+                case "Ejercicio 6":
+
+                    PanelLab3Ejercicio6 panel6 = new PanelLab3Ejercicio6();
+                    CambiarPanel(panel6);
+
+                    break;
+            }
+            
         }
-          
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"Seleccione uno de los ejercicios");
+        }
     }//GEN-LAST:event_btnProbarActionPerformed
   
     /*

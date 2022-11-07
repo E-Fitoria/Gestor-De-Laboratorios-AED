@@ -45,6 +45,7 @@ public class main extends javax.swing.JFrame {
         btnInicio = new javax.swing.JButton();
         btnLaboratorio4 = new javax.swing.JButton();
         btnLaboratorio5 = new javax.swing.JButton();
+        btnPresentacion = new javax.swing.JButton();
         PanelContencion = new javax.swing.JPanel();
         PanelPresentacion = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -252,6 +253,38 @@ public class main extends javax.swing.JFrame {
             }
         });
 
+        btnPresentacion.setBackground(new java.awt.Color(0, 55, 145));
+        btnPresentacion.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+        btnPresentacion.setForeground(new java.awt.Color(255, 255, 255));
+        btnPresentacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-copyright.png"))); // NOI18N
+        btnPresentacion.setText(".");
+        btnPresentacion.setBorderPainted(false);
+        btnPresentacion.setContentAreaFilled(false);
+        btnPresentacion.setFocusable(false);
+        btnPresentacion.setOpaque(true);
+        btnPresentacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPresentacionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnPresentacionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnPresentacionMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnPresentacionMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnPresentacionMouseReleased(evt);
+            }
+        });
+        btnPresentacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPresentacionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelAzulLayout = new javax.swing.GroupLayout(PanelAzul);
         PanelAzul.setLayout(PanelAzulLayout);
         PanelAzulLayout.setHorizontalGroup(
@@ -272,8 +305,13 @@ public class main extends javax.swing.JFrame {
                             .addComponent(btnLaboratorio4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnLaboratorio5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))))
             .addGroup(PanelAzulLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(btnInicio)
+                .addGroup(PanelAzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelAzulLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(btnInicio))
+                    .addGroup(PanelAzulLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnPresentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         PanelAzulLayout.setVerticalGroup(
@@ -286,16 +324,18 @@ public class main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnLaboratorios, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLaboratorio1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLaboratorio1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLaboratorio2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLaboratorio2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLaboratorio3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLaboratorio3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLaboratorio4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLaboratorio4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLaboratorio5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addComponent(btnLaboratorio5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addComponent(btnPresentacion)
+                .addContainerGap())
         );
 
         getContentPane().add(PanelAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 560));
@@ -521,6 +561,34 @@ public class main extends javax.swing.JFrame {
         CambiarPanel(panel);
     }//GEN-LAST:event_btnLaboratorio1ActionPerformed
 
+    private void btnPresentacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPresentacionMouseEntered
+        btnPresentacion.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btnPresentacionMouseEntered
+
+    private void btnPresentacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPresentacionMouseExited
+        btnPresentacion.setBackground(new Color(0,55,145));
+    }//GEN-LAST:event_btnPresentacionMouseExited
+
+    private void btnPresentacionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPresentacionMousePressed
+        btnPresentacion.setBackground(new Color(0,55,145));
+    }//GEN-LAST:event_btnPresentacionMousePressed
+
+    private void btnPresentacionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPresentacionMouseReleased
+        btnPresentacion.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btnPresentacionMouseReleased
+    
+    
+    
+    private void btnPresentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPresentacionActionPerformed
+        Presentacion mover = new Presentacion();  
+        mover.setVisible(true);
+       
+    }//GEN-LAST:event_btnPresentacionActionPerformed
+
+    private void btnPresentacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPresentacionMouseClicked
+        
+    }//GEN-LAST:event_btnPresentacionMouseClicked
+
     private void CambiarPanel(JPanel panel)
     {
         panel.setSize(600,430); //le damos las medidas del panel
@@ -578,6 +646,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton btnLaboratorio4;
     private javax.swing.JButton btnLaboratorio5;
     private javax.swing.JButton btnLaboratorios;
+    private javax.swing.JButton btnPresentacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
