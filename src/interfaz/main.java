@@ -4,6 +4,7 @@ package interfaz;
  *
  * @author Usuario
  */
+import Laboratorio6.VerArbol;
 import java.awt.*;
 import javax.swing.JPanel;
 
@@ -25,6 +26,7 @@ public class main extends javax.swing.JFrame {
         btnLaboratorio3.setVisible(false);
         btnLaboratorio4.setVisible(false);
         btnLaboratorio5.setVisible(false);
+        btnLaboratorio6.setVisible(false);
     }
 
     /**
@@ -46,11 +48,11 @@ public class main extends javax.swing.JFrame {
         btnLaboratorio4 = new javax.swing.JButton();
         btnLaboratorio5 = new javax.swing.JButton();
         btnPresentacion = new javax.swing.JButton();
+        btnLaboratorio6 = new javax.swing.JButton();
         PanelContencion = new javax.swing.JPanel();
         PanelPresentacion = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -285,6 +287,35 @@ public class main extends javax.swing.JFrame {
             }
         });
 
+        btnLaboratorio6.setBackground(new java.awt.Color(1, 50, 170));
+        btnLaboratorio6.setFont(new java.awt.Font("Consolas", 1, 15)); // NOI18N
+        btnLaboratorio6.setForeground(new java.awt.Color(255, 255, 255));
+        btnLaboratorio6.setText("Laboratorio 6");
+        btnLaboratorio6.setBorderPainted(false);
+        btnLaboratorio6.setContentAreaFilled(false);
+        btnLaboratorio6.setFocusable(false);
+        btnLaboratorio6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnLaboratorio6.setOpaque(true);
+        btnLaboratorio6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLaboratorio6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLaboratorio6MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnLaboratorio6MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnLaboratorio6MouseReleased(evt);
+            }
+        });
+        btnLaboratorio6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLaboratorio6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelAzulLayout = new javax.swing.GroupLayout(PanelAzul);
         PanelAzul.setLayout(PanelAzulLayout);
         PanelAzulLayout.setHorizontalGroup(
@@ -303,7 +334,8 @@ public class main extends javax.swing.JFrame {
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(21, 21, 21))
                             .addComponent(btnLaboratorio4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnLaboratorio5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(btnLaboratorio5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnLaboratorio6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))))
             .addGroup(PanelAzulLayout.createSequentialGroup()
                 .addGroup(PanelAzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelAzulLayout.createSequentialGroup()
@@ -333,7 +365,9 @@ public class main extends javax.swing.JFrame {
                 .addComponent(btnLaboratorio4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLaboratorio5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnLaboratorio6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(btnPresentacion)
                 .addContainerGap())
         );
@@ -430,6 +464,7 @@ public class main extends javax.swing.JFrame {
         btnLaboratorio3.setVisible(true);
         btnLaboratorio4.setVisible(true);
         btnLaboratorio5.setVisible(true);
+        btnLaboratorio6.setVisible(true);
     }//GEN-LAST:event_btnLaboratoriosActionPerformed
 
     private void btnLaboratorio2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLaboratorio2MouseEntered
@@ -589,6 +624,29 @@ public class main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnPresentacionMouseClicked
 
+    private void btnLaboratorio6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLaboratorio6MouseEntered
+       btnLaboratorio6.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btnLaboratorio6MouseEntered
+
+    private void btnLaboratorio6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLaboratorio6MouseExited
+        btnLaboratorio6.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btnLaboratorio6MouseExited
+
+    private void btnLaboratorio6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLaboratorio6MousePressed
+        btnLaboratorio6.setBackground(new Color(1,50,170));
+    }//GEN-LAST:event_btnLaboratorio6MousePressed
+
+    private void btnLaboratorio6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLaboratorio6MouseReleased
+        btnLaboratorio6.setBackground(new Color(59,89,152));
+    }//GEN-LAST:event_btnLaboratorio6MouseReleased
+
+    private void btnLaboratorio6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaboratorio6ActionPerformed
+       
+        VerArbol arbol = new VerArbol();
+        
+       arbol.setVisible(true);
+    }//GEN-LAST:event_btnLaboratorio6ActionPerformed
+
     private void CambiarPanel(JPanel panel)
     {
         panel.setSize(600,430); //le damos las medidas del panel
@@ -645,6 +703,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton btnLaboratorio3;
     private javax.swing.JButton btnLaboratorio4;
     private javax.swing.JButton btnLaboratorio5;
+    private javax.swing.JButton btnLaboratorio6;
     private javax.swing.JButton btnLaboratorios;
     private javax.swing.JButton btnPresentacion;
     private javax.swing.JLabel jLabel1;
