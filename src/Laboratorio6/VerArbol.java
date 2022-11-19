@@ -22,12 +22,20 @@ public class VerArbol extends javax.swing.JFrame {
      */
     
     static String cadena_pre = "", cadena_in = "", cadena_pos = "";
+    /*
+    Variables y valores para dibujar el arbol ingresado
+    */
     public static final int DIAMETRO = 30;
     public static final int RADIO = DIAMETRO / 2;
     public static final int ANCHO = 50;
+    //creamos un atributo de tipo Nodo y lo inicializamos con un caracter vacío en dato de tipo object y null 
+    //para izquierda y derecha del arbol
     Nodo APNODO = new Nodo("",null,null);
     
     public VerArbol() {
+        /*
+        Al inciar la clase VerArbol creamos una clase que se contiene dentro 
+        del jframe en este caso la clase graficar que hereda de Jpanel */
         this.setContentPane(new graficar());
         initComponents();
         setLocationRelativeTo(null);
@@ -157,29 +165,44 @@ public class VerArbol extends javax.swing.JFrame {
                         "Pre Orden " + PreOrden(APNODO) + "\n";      
         JOptionPane.showMessageDialog(null,cadena);
     }//GEN-LAST:event_btnConstruyaActionPerformed
-    
+    /*
+    Usamos una clase graficar que hereda propiedades y métodos de JPanel
+    y así poder graficar el árbol en el panel que está en el jframe
+    */
     public class graficar extends JPanel{
-        
+        //este m[etdos de ejecuta por defecto para hacer los gráficos 
         public void paint(Graphics g) {
             super.paint(g);
             pintar(g, getWidth() / 2, 40, APNODO);
         }
-
+        /**
+         * 
+         * @param g parametro de graficos 
+         * @param x posicion en x 
+         * @param y posicion  en y
+         * @param n Este es el nodo que le estamos pasando para graficar la funcion grafica cuando el nodo es distinto
+         * de null
+         */
         private static void pintar(Graphics g, int x, int y, Nodo n) {
 
             if (n != null) {
 
                 int EXTRA = nodosCompletos(n) * (ANCHO / 2);
-
+                //dibujamos los circulos para representar los nodos
                 g.drawOval(x, y, DIAMETRO, DIAMETRO);
+                //graficamos dentro del círculo el valor del nodo con el método getDato que pertenece a la clase Nodo
                 g.drawString(n.getDato().toString(), x + 12, y + 18);
+                
+                /*
+                Acá revisamos si hay nodos por izquierda y derecha para así proceder a graficar 
+                */
                 if (n.getIzquierda() != null) {
                     g.drawLine(x + RADIO, y + RADIO, x - ANCHO - EXTRA + RADIO, y + ANCHO + RADIO);
                 }
                 if (n.getDerecha() != null) {
                     g.drawLine(x + RADIO, y + RADIO, x + ANCHO + EXTRA + RADIO, y + ANCHO + RADIO);
                 }
-
+                 //usamos recursión para pintar los nodos hasta que se acaben
                 pintar(g, x - ANCHO - EXTRA, y + ANCHO, n.getIzquierda());
                 pintar(g, x + ANCHO + EXTRA, y + ANCHO, n.getDerecha());
 

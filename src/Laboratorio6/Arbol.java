@@ -21,14 +21,20 @@ public class Arbol {
         
         String opc;
          
-        APNODO.dato = JOptionPane.showInputDialog("Ingrese el valor");
+        APNODO.dato = JOptionPane.showInputDialog("Ingrese el valor de la raiz");
         
-        opc = JOptionPane.showInputDialog("Existe nodo por la izquierda (si o no)");
+        opc = JOptionPane.showInputDialog("Existe nodo por la izquierda " + APNODO.dato + "si o no");
         
         if (opc.equalsIgnoreCase("si"))
         {
+             /*
+            usamos un nodo temporal y le pasamos como primer parámetro del constructor el valor que ingresó
+            el susuario para el nuevo nodo, luego en el noodo en el que estamos trabajando le damos el valor 
+            de temporal para que almacene ese dato en los nodos de izquierda
+            */
             Nodo temporal = new Nodo(APNODO.dato,null,null);
             APNODO.izquierda = temporal;
+            //usamos recursividad para seguir pidiendo datos hasta que el usuario decida
             insertar(APNODO.izquierda);
         }
         else
@@ -50,6 +56,12 @@ public class Arbol {
         } 
     }
     
+    /**Esta funcion sirve par contar la cantidad de nodos, la usaremos para la funcion pintar de la clase graficar
+     * para poder graficar el árbol
+     * 
+     * @param APNODO nodo en el que estamos almacenando
+     * @return la cantidad de nodos 
+     */
     public static int nodosCompletos(Nodo APNODO) {
         if (APNODO == null)
             return 0;

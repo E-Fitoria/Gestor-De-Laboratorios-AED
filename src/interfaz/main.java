@@ -521,7 +521,7 @@ public class main extends javax.swing.JFrame {
         btnLaboratorio3.setVisible(false);
         btnLaboratorio4.setVisible(false);
         btnLaboratorio5.setVisible(false);
-        
+        btnLaboratorio6.setVisible(false);
         PanelContencion.removeAll();
         PanelContencion.revalidate();
         PanelContencion.repaint();    
@@ -538,7 +538,7 @@ public class main extends javax.swing.JFrame {
             btnLaboratorio3.setVisible(false);
             btnLaboratorio4.setVisible(false);
             btnLaboratorio5.setVisible(false);
-            
+            btnLaboratorio6.setVisible(false);
             PanelContencion.removeAll(); //removeoms lo que hay en el panel
             PanelContencion.revalidate();
             PanelContencion.repaint();   //repintamos
