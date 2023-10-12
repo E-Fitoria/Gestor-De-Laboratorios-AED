@@ -16,4 +16,4 @@ Swing con el IDE NetBeans usando el JDK 17.
 El archivo .java a ejecutar se encentra en el paquete interfaz, el nombre del archivo es "main.java"
 
 ### Imagen de muestra del Laboratorio 6
-![Lab6](https://github.com/E-Fitoria/img_projects/blob/master/aed/lab6.png)
+![Lab6](https://github.com/E-Fitoria/Gestor-De-Laboratorios-AED/blob/master/lab6.png)
